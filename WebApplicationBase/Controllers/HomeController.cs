@@ -15,6 +15,7 @@ namespace WebApplicationBase.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
