@@ -1,16 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/WebApplicationBase.styles.css" asp-append-version="true" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApplicationBase</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebApplicationBase.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <!--上選單-->
+    <!--上選單-->
+    <header>       
         @await Component.InvokeAsync("TopMenu")     
     </header>
     <div class="container">
@@ -19,14 +22,10 @@
             @RenderBody()
         </main>
     </div>
-
-
     <!--下選單-->
-    @await Component.InvokeAsync("FooterMenu")
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <footer class="border-top footer text-muted">  
+        @await Component.InvokeAsync("FooterMenu")
+    </footer>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
