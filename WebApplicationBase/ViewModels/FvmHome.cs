@@ -8,9 +8,10 @@ namespace WebApplicationBase.ViewModels
     /// </summary>
     public class FvmHome
     {
-        /// <summary>
-        /// 範本 模型
-        /// </summary>
+
+
+
+        /// <summary> 範本 模型 </summary>
         public class VM_Data
         {
             /// <summary> ID </summary>

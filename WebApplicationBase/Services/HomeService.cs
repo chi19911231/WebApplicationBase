@@ -42,18 +42,30 @@ namespace WebApplicationBase.Services
         /// </summary>
         /// <returns></returns>
         public IQueryable<FvmHome.VM_Data> GetSearchList() 
-        {
-        
+        {                    
+            var model = new FvmHome.VM_Data()
+            {
+                ID = 1,
+                Title = "Title",
+                Content = "Content",
+            };
+            
             return null;
         }
 
         /// <summary> 取得單一資料 </summary>
         /// <param name="id">模型id</param>
         /// <returns></returns>
-        public Task<FvmHome.VM_Data> GetAsync(int id)
+        public async Task<FvmHome.VM_Data> GetAsync(int id)
         {
+            var model = new FvmHome.VM_Data()
+            {
+                ID = id,
+                Title = "Title",
+                Content = "Content",               
+            };           
 
-            return null;
+            return model;
         }
 
         /// <summary> 更新商品 </summary>
