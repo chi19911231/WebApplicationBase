@@ -3,17 +3,25 @@
 }
 
 @section scripts {
+
     <script>
         var PageScope = {
             Url: {
-               
-            }
+                GetListUrl: "@Url.Action("GetListData", "Home")",
+                GetAsyncUrl: "@Url.Action("GetData", "Home")",
+            },
         };
     </script>
+
     <script type="text/javascript" src="@Url.Content("~/js/Home/Index.js")" asp-append-version="true"></script>
+
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <div class="get">Get</div>
+    <div class="post">Post</div>
+
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+

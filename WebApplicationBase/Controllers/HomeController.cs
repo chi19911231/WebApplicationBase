@@ -44,6 +44,7 @@ namespace WebApplicationBase.Controllers
 
         /// <summary> 取得所有資料 </summary>
         /// <returns></returns>
+        [HttpGet]
         public IActionResult GetListData()
         {
             var model = _homeServicer.GetSearchList();
@@ -53,6 +54,7 @@ namespace WebApplicationBase.Controllers
         /// <summary> 取得單筆資料 </summary>
         /// <param name="id"> 資料編號 </param>
         /// <returns></returns>
+        [HttpPost]
         public async Task<IActionResult> GetData(int id)
         {
             var model = await _homeServicer.GetAsync(id);
