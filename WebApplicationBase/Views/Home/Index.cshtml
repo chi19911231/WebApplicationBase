@@ -7,8 +7,14 @@
     <script>
         var PageScope = {
             Url: {
-                GetListUrl: "@Url.Action("GetListData", "Home")",
-                GetAsyncUrl: "@Url.Action("GetData", "Home")",
+                //Ajax(Get、Post)
+                GetHttpGet: "@Url.Action("GetHttpGet", "Home")",
+                GetHttpPost: "@Url.Action("GetHttpPost", "Home")",
+                GetHttpGetParameter: "@Url.Action("GetHttpGetParameter", "Home")",
+                GetHttpPostParameter: "@Url.Action("GetHttpPostParameter", "Home")",
+                //Url
+                GetList: "@Url.Action("GetListData", "Home")",
+                GetAsync: "@Url.Action("GetData", "Home")",
             },
         };
     </script>
@@ -19,8 +25,12 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+
     <div class="get">Get</div>
     <div class="post">Post</div>
+
+    <div class="getParameter">GetParameter</div>
+    <div class="postParameter">PostParameter</div>
 
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

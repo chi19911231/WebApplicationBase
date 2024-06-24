@@ -42,6 +42,32 @@ namespace WebApplicationBase.Controllers
         }
 
 
+        #region Ajax Get、Post相關
+
+        [HttpGet]
+        public IActionResult GetHttpGet()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GetHttpPost()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult GetHttpGetParameter(string id)
+        {            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GetHttpPostParameter(int id)
+        {            
+            return View();
+        }
+
         /// <summary> 取得所有資料 </summary>
         /// <returns></returns>
         [HttpGet]
@@ -50,6 +76,9 @@ namespace WebApplicationBase.Controllers
             var model = _homeServicer.GetSearchList();
             return View(model);
         }
+
+        #endregion
+
 
         /// <summary> 取得單筆資料 </summary>
         /// <param name="id"> 資料編號 </param>
