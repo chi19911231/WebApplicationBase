@@ -3,29 +3,12 @@
 }
 
 @section scripts {
-
     <script>
         var PageScope = {
-            Url: {
-                //Url
+            Url: {              
                 GetList: "@Url.Action("GetListData", "Home")",
                 GetAsync: "@Url.Action("GetData", "Home")",
-
-                //AjaxPartialView(Get、Post)
-                GetHttpGet: "@Url.Action("GetHttpGet", "Home")",
-                GetHttpPost: "@Url.Action("GetHttpPost", "Home")",
-                GetHttpGetParameter: "@Url.Action("GetHttpGetParameter", "Home")",
-                GetHttpPostParameter: "@Url.Action("GetHttpPostParameter", "Home")",
-                GetHttpGetObject: "@Url.Action("GetHttpGetObject", "Home")",
-                GetHttpPostObject: "@Url.Action("GetHttpPostObject", "Home")",
-
-                //AjaxJson(Get、Post)
-                GetHttpGetJson: "@Url.Action("GetHttpGetJson", "Home")",
-                GetHttpPostJson: "@Url.Action("GetHttpPostJson", "Home")",
-                GetHttpGetParameterJson: "@Url.Action("GetHttpGetParameterJson", "Home")",
-                GetHttpPostParameterJson: "@Url.Action("GetHttpPostParameterJson", "Home")",
-                GetHttpGetObjectJson: "@Url.Action("GetHttpGetObjectJson", "Home")",
-                GetHttpPostObjectJson: "@Url.Action("GetHttpPostObjectJson", "Home")",           
+                AjaxTemplateIndex: "@Url.Action("Index", "AjaxTemplate")",
             },
         };
     </script>
@@ -34,26 +17,15 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <br />
-
-    <div class="">接收格式:PartialView</div>
-    <div class="get">Get</div>
-    <div class="post">Post</div>
-    <div class="getParameter">GetParameter</div>
-    <div class="postParameter">PostParameter</div>
-    <div class="getObject">GetObject</div>
-    <div class="postObject">PostObject</div>
-    <br />
-
-    <div class="">接收格式:Json</div>
-    <div class="getJson">GetJson</div>
-    <div class="postJson">PostJson</div>
-    <div class="getParameterJson">GetParameterJson</div>
-    <div class="postParameterJson">PostParameterJson</div>
-    <div class="getObjectJson">GetObjectJson</div>
-    <div class="postObjectJson">PostObjectJson</div>
-    <br />
-
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+<div class="text-center GetListData">
+    GetListData
+</div>
+<div class="text-center GetData">
+    GetData
+</div>
+<div class="text-center AjaxTemplate">    
+    AjaxTemplate
+</div>

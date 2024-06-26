@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+
+    <script>
+        var PageScope = {
+            Url: {
+
+                //AjaxPartialView(Get、Post)
+                HttpGet: "@Url.Action("Get_HttpGetPartialView", "AjaxTemplate")",
+                HttpPost: "@Url.Action("Get_HttpPostPartialView", "AjaxTemplate")",
+                HttpGetParameter: "@Url.Action("Get_HttpGetParameterPartialView", "AjaxTemplate")",
+                HttpPostParameter: "@Url.Action("Get_HttpPostParameterPartialView", "AjaxTemplate")",
+                HttpGetObject: "@Url.Action("Get_HttpGetObjectPartialView", "AjaxTemplate")",
+                HttpPostObject: "@Url.Action("Get_HttpPostObjectPartialView", "AjaxTemplate")",
+
+                //AjaxJson(Get、Post)
+                HttpGetJson: "@Url.Action("Get_HttpGetJson", "AjaxTemplate")",
+                HttpPostJson: "@Url.Action("Get_HttpPostJson", "AjaxTemplate")",
+                HttpGetParameterJson: "@Url.Action("Get_HttpGetParameterJson", "AjaxTemplate")",
+                HttpPostParameterJson: "@Url.Action("Get_HttpPostParameterJson", "AjaxTemplate")",
+                HttpGetObjectJson: "@Url.Action("Get_HttpGetObjectJson", "AjaxTemplate")",
+                HttpPostObjectJson: "@Url.Action("Get_HttpPostObjectJson", "AjaxTemplate")",
+
+            },
+        };
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/js/AjaxTemplate/Index.js")" asp-append-version="true"></script>
+}
+
+
+<h1>Index</h1>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <br />
+
+    <div class="">接收格式:PartialView</div>
+    <div class="get">Get</div>
+    <div class="post">Post</div>
+    <div class="getParameter">GetParameter</div>
+    <div class="postParameter">PostParameter</div>
+    <div class="getObject">GetObject</div>
+    <div class="postObject">PostObject</div>
+    <br />
+
+    <div class="">接收格式:Json</div>
+    <div class="getJson">GetJson</div>
+    <div class="postJson">PostJson</div>
+    <div class="getParameterJson">GetParameterJson</div>
+    <div class="postParameterJson">PostParameterJson</div>
+    <div class="getObjectJson">GetObjectJson</div>
+    <div class="postObjectJson">PostObjectJson</div>
+    <br />
+
+</div>
+

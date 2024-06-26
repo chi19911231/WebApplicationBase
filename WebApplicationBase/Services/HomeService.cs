@@ -53,8 +53,8 @@ namespace WebApplicationBase.Services
             var model = new FvmHome.VM_Data()
             {
                 ID = id,
-                Title = "Title",
-                Content = "Content",               
+                Title = "抬頭",
+                Content = "內容",               
             };           
 
             return model;
