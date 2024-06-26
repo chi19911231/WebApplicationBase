@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplicationBase.Models;
 using WebApplicationBase.Services;
-using WebApplicationBase.ViewModels;
+using WebApplicationBase.ViewModels.Base;
 
 namespace WebApplicationBase.Controllers
 {
@@ -12,9 +12,7 @@ namespace WebApplicationBase.Controllers
         private readonly IHomeService _homeServicer;
 
         #region 建構子
-        /// <summary>
-        /// 建構子
-        /// </summary>
+        /// <summary> 建構子 </summary>
         /// <param name="logger"></param>
         /// <param name="homeService"></param>
         public HomeController(ILogger<HomeController> logger , IHomeService homeService)
@@ -44,31 +42,139 @@ namespace WebApplicationBase.Controllers
 
         #region Ajax Get、Post相關
 
+        /// <summary> </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetHttpGet()
         {
-            return View();
+            return PartialView("_PartialGetHttpGet");
         }
 
+        /// <summary> </summary>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult GetHttpPost()
         {
-            return View();
+            return PartialView("_PartialGetHttpPost");
         }
 
+        /// <summary>  </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IActionResult GetHttpGetParameter(string id)
+        public IActionResult GetHttpGetParameter(int id)
         {            
-            return View();
+            return PartialView("_PartialGetHttpGetParameter");          
         }
 
+        /// <summary> </summary>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult GetHttpPostParameter(int id)
-        {            
-            return View();
+        {
+            return PartialView("_PartialGetHttpPostParameter");
         }
 
-        /// <summary> 取得所有資料 </summary>
+        /// <summary>  </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetHttpGetObject([FromQuery] VM_Request model)
+        {
+            return PartialView("_PartialGetHttpGetObject");
+        }
+
+        /// <summary> </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult GetHttpPostObject([FromBody] VM_Request model)
+        {
+            return PartialView("_PartialGetHttpPostObject");
+        }
+
+        /// <summary> </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetHttpGetJson()
+        {
+            var data = new VM_Response();        
+            data.SetMessage("Message");
+            data.SetData("Data");
+
+            return Json(data);
+        }
+
+        /// <summary>  </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult GetHttpPostJson()
+        {
+            var data = new VM_Response();
+            data.SetMessage("Message");
+            data.SetData("Data");
+
+            return Json(data);
+        }
+
+       /// <summary> </summary>
+       /// <param name="id"></param>
+       /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetHttpGetParameterJson([FromQuery] string id)
+        {
+            var data = new VM_Response();
+            data.SetMessage("Message");
+            data.SetData("Data");
+
+            return Json(data);
+        }
+
+        /// <summary> </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult GetHttpPostParameterJson([FromBody] string id)
+        {
+            var data = new VM_Response();
+            data.SetMessage("Message");
+            data.SetData("Data");
+
+            return Json(data);
+        }
+
+         
+        /// <summary> </summary>         
+        /// <param name="model"></param>         
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetHttpGetObjectJson([FromQuery] VM_Request model)
+        {
+            var data = new VM_Response();
+            data.SetMessage(model.Message);
+            data.SetData(model.Data);
+
+            return Json(data);
+        }
+
+        /// <summary> </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult GetHttpPostObjectJson([FromBody] VM_Request model)
+        {           
+            var data = new VM_Response();
+            data.SetMessage(model.Message);
+            data.SetData(model.Data);
+
+            return Json(data);
+        }
+
+
+
+
+      
+        #endregion
+
+
+         /// <summary> 取得所有資料 </summary>
         /// <returns></returns>
         [HttpGet]
         public IActionResult GetListData()
@@ -76,9 +182,6 @@ namespace WebApplicationBase.Controllers
             var model = _homeServicer.GetSearchList();
             return View(model);
         }
-
-        #endregion
-
 
         /// <summary> 取得單筆資料 </summary>
         /// <param name="id"> 資料編號 </param>
