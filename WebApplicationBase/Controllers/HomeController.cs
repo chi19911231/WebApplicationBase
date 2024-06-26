@@ -75,7 +75,7 @@ namespace WebApplicationBase.Controllers
             return PartialView("_PartialGetHttpPostParameter");
         }
 
-        /// <summary>  </summary>
+        /// <summary> </summary>
         /// <returns></returns>
         [HttpGet]
         public IActionResult GetHttpGetObject([FromQuery] VM_Request model)

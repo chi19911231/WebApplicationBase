@@ -7,25 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\_PartialGetHttpGetObject.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="jQuery" Version="3.7.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
     <PackageReference Include="SweetAlert2" Version="1.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Home\_PartialGetHttpGetObject.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Home\_PartialGetHttpGetObject.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Home\_PartialGetHttpGetObject.cshtml" />
   </ItemGroup>
 
 </Project>

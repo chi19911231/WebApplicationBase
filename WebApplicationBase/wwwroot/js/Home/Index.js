@@ -107,9 +107,9 @@
             contentType: "application/json", 
             //Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
-            dataType: "Html",
+            //html:接收html格式
+            //json:接收json格式
+            dataType: "html",
           
             success: function (response) {
                 alert("Success");
@@ -135,10 +135,10 @@
             //application/json:上傳Json格式
             //application/x-www-form-urlencoded：上傳html表單
             //multipart/form-data:上傳檔案、圖片
-            dataType: "Html",//Server端傳送Clinet端的資料格式
+            dataType: "html",//Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
+            //html:接收html格式
+            //json:接收json格式
             data: { id: 1 },
             success: function (response) {
                 alert("Success");
@@ -154,35 +154,15 @@
     //傳送格式:複雜繫節
     //接收格式:PartialView
     let getObject = function () {
-
-        //JavaScript物件
+    
         let model = {
             Id: 1,
             Message: "Message1",
-        }
+        }       
 
-        //寫法1
-        //let model = {
-        //    Id: 1,
-        //    Message:"Message1" ,
-        //    Data:"Data"
-        //    getDataFunction: function () {
-        //        console.log(`getDataFunction : ${this.Data}`);
-        //    }
-        //}
-
-        //寫法2
-        //let model = {};
-        //data.Id= 1,
-        //data.Message= "Message1",
-        //data.Data= "Data"
-        //data.getDataFunction= function () {
-        //    console.log(`getDataFunction : ${this.Data}`);
-        //}
-
-        alert(`PageScope.Url.GetHttpGetObjectJson = ${PageScope.Url.GetHttpGetObject}?id=${model.Id}&Message=${model.Message}`);
+        alert(`PageScope.Url.GetHttpGetObject = ${PageScope.Url.GetHttpGetObject}?Id=${model.Id}&Message=${model.Message}`);
         $.ajax({
-            url: PageScope.Url.GetHttpGetObject,
+            url: `${PageScope.Url.GetHttpGetObject}?Id=${model.Id}&Message=${model.Message}`,
             //發送格式:GET,POST
             type: "GET",
             //Clinet端傳送Server端的資料格式
@@ -193,9 +173,9 @@
             contentType: "application/json", 
             //Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
-            dataType: "Html",    
+            //html:接收html格式
+            //json:接收json格式
+            dataType: "html",    
             success: function (response) {
                 console.log("response: " + JSON.stringify(response));
                 alert("Success");
@@ -238,9 +218,9 @@
 
             //Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
-            dataType: "Html",
+            //html:接收html格式
+            //json:接收json格式
+            dataType: "html",
             
             data: JSON.stringify(model),
             success: function (response) {
@@ -264,8 +244,8 @@
             type: "GET",//GET,POST
             //Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
+            //html:接收html格式
+            //json:接收json格式
             dataType: "Json",       
             success: function (response) {
                 console.log("response: " + JSON.stringify(response));
@@ -288,8 +268,8 @@
             type: "POST",//GET,POST
             dataType: "Json",//Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
+            //html:接收html格式
+            //json:接收json格式
             success: function (response) {
                 console.log("response: " + JSON.stringify(response));           
                 alert("Success");
@@ -318,8 +298,8 @@
             contentType: "application/json", 
             //Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式  
+            //html:接收html格式
+            //json:接收json格式  
             dataType: "Json",               
             success: function (response) {
                 console.log("response: " + JSON.stringify(response));
@@ -349,8 +329,8 @@
             contentType: "application/json",
             //Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式  
+            //html:接收html格式
+            //json:接收json格式  
             dataType: "Json",               
             data: { id: "1" }, // 將 JavaScript 對象轉換為 JSON 字符串
             success: function (response) {
@@ -388,8 +368,8 @@
             //multipart/form-data:上傳檔案、圖片
             dataType: "json",//Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
+            //html:接收html格式
+            //json:接收json格式
             data: model,
             success: function (response) {
                 console.log("response: " + JSON.stringify(response));
@@ -430,8 +410,8 @@
             contentType: "application/json;",            
             //Server端傳送Clinet端的資料格式
             //接收格式
-            //Html:接收html格式
-            //Json:接收Json格式
+            //html:接收html格式
+            //json:接收json格式
             dataType: "Json",      
             data: JSON.stringify(model),
             success: function (response) {
@@ -445,7 +425,7 @@
         });
     }
    
-    //Html載入完成後執行JavaScript
+    //html載入完成後執行JavaScript
     //寫法1
     //$(function () {
     //    $(".text-center").on("click", () => {
