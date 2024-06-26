@@ -170,7 +170,7 @@ namespace WebApplicationBase.Controllers
         #endregion
 
 
-         /// <summary> 取得所有資料 </summary>
+        /// <summary> 取得所有資料 </summary>
         /// <returns></returns>
         [HttpGet]
         public IActionResult GetListData()
