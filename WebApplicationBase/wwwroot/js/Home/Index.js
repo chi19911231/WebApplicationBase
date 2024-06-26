@@ -436,6 +436,7 @@
             data: JSON.stringify(model),
             success: function (response) {
                 console.log("response: " + JSON.stringify(response));
+
                 alert("Success");
             },
             error: function (xhr, status, error) {

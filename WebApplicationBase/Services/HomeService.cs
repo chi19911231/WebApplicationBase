@@ -2,18 +2,14 @@
 
 namespace WebApplicationBase.Services
 {
-    /// <summary>
-    /// 主頁 Interface
-    /// </summary>
+    /// <summary> 主頁 Interface </summary>
     public interface IHomeService
     {
-        /// <summary>
-        /// 取得所有資料
-        /// </summary>
+        /// <summary> 取得所有資料 </summary>
         /// <returns></returns>
+        ///在資料被列舉前的LINQ查詢方法的類別會是IQueryable，允許被調整為各式各樣的SQL語句。
+        ///而在資料被列舉後的LINQ查詢方法的類別會是IEnumerable，此時資料已存放在記憶體，不會再拼湊任何SQL語句。
         IQueryable<FvmHome.VM_Data> GetSearchList();
-        //在資料被列舉前的LINQ查詢方法的類別會是IQueryable，允許被調整為各式各樣的SQL語句。
-        //而在資料被列舉後的LINQ查詢方法的類別會是IEnumerable，此時資料已存放在記憶體，不會再拼湊任何SQL語句。
 
         /// <summary> 取得單一資料 </summary>
         /// <param name="id">模型id</param>
@@ -32,14 +28,10 @@ namespace WebApplicationBase.Services
 
     }
 
-    /// <summary>
-    /// 主頁 Service
-    /// </summary>
+    /// <summary> 主頁 Service </summary>
     public class HomeService : IHomeService
     {
-        /// <summary>
-        /// 取得所有資料
-        /// </summary>
+        /// <summary> 取得所有資料 </summary>
         /// <returns></returns>
         public IQueryable<FvmHome.VM_Data> GetSearchList() 
         {                    
@@ -49,7 +41,7 @@ namespace WebApplicationBase.Services
                 Title = "Title",
                 Content = "Content",
             };
-            
+
             return null;
         }
 

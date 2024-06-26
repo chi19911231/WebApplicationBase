@@ -1,7 +1,10 @@
-﻿@* @model List<FvmHome.VM_Data> *@
+﻿@model WebApplicationBase.ViewModels.FvmHome.VM_Data
 @{
-    ViewData["Title"] = "GetListData";
-    Layout = "GetListData";
 }
-
 <h1>GetListData</h1>
+<div>
+    Title : @Model.Title
+</div>
+<div>
+    Content : @Model.Content
+</div>

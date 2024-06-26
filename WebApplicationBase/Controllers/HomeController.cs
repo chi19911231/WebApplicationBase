@@ -8,6 +8,7 @@ namespace WebApplicationBase.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
         private readonly IHomeService _homeServicer;
 
@@ -139,8 +140,7 @@ namespace WebApplicationBase.Controllers
 
             return Json(data);
         }
-
-         
+        
         /// <summary> </summary>         
         /// <param name="model"></param>         
         /// <returns></returns>
@@ -166,10 +166,6 @@ namespace WebApplicationBase.Controllers
 
             return Json(data);
         }
-
-
-
-
       
         #endregion
 
@@ -179,14 +175,14 @@ namespace WebApplicationBase.Controllers
         [HttpGet]
         public IActionResult GetListData()
         {
-            var model = _homeServicer.GetSearchList();
+            var model = _homeServicer.GetSearchList();            
             return View(model);
         }
 
         /// <summary> 取得單筆資料 </summary>
         /// <param name="id"> 資料編號 </param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> GetData(int id)
         {
             var model = await _homeServicer.GetAsync(id);
