@@ -22,4 +22,12 @@
     <PackageReference Include="SweetAlert2" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\BaseTable\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\BaseTable\Create.cshtml" />
+  </ItemGroup>
+
 </Project>

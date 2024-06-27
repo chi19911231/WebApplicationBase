@@ -10,7 +10,7 @@ namespace WebApplicationBase.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
-        private readonly IHomeService _homeServicer;
+        private readonly IHomeService _homeService;
 
         #region 建構子
         /// <summary> 建構子 </summary>
@@ -19,7 +19,7 @@ namespace WebApplicationBase.Controllers
         public HomeController(ILogger<HomeController> logger , IHomeService homeService)
         {
             _logger = logger;
-            _homeServicer = homeService;
+            _homeService = homeService;
         }
         #endregion
 
@@ -47,7 +47,7 @@ namespace WebApplicationBase.Controllers
         [HttpGet]
         public IActionResult GetListData()
         {
-            var model = _homeServicer.GetSearchList();            
+            var model = _homeService.GetSearchList();            
             return View(model);
         }
 
@@ -57,7 +57,7 @@ namespace WebApplicationBase.Controllers
         [HttpGet]
         public async Task<IActionResult> GetData(int id)
         {
-            var model = await _homeServicer.GetAsync(id);
+            var model = await _homeService.GetAsync(id);
             return View(model);
         }
 
