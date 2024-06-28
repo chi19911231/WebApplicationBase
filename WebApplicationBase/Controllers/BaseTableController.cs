@@ -7,7 +7,6 @@ namespace WebApplicationBase.Controllers
 {
     public class BaseTableController : Controller
     {
-
         private readonly IBaseTableService _baseTableService;
 
         /// <summary> 建構子 </summary>
@@ -44,7 +43,6 @@ namespace WebApplicationBase.Controllers
             return View();
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
@@ -56,8 +54,6 @@ namespace WebApplicationBase.Controllers
 
             return Json(data);
         }
-
-
  
 
     }

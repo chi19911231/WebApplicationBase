@@ -20,12 +20,12 @@
         })
         $(".postObject").on("click", function () {
             postObject();
-        })     
-
+        }) 
 
         $(".getJson").on("click", function () {            
             getJson();
         })
+
         $(".postJson").on("click", function () {      
             postJson();
         })
@@ -41,6 +41,7 @@
         $(".getObjectJson").on("click", function () {
             getObjectJson();
         })
+
         $(".postObjectJson").on("click", function () {
             postObjectJson();
         })
@@ -136,10 +137,11 @@
             //application/json:上傳Json格式     
             //multipart/form-data:上傳檔案、圖片
             //dataType: "html",//Server端傳送Clinet端的資料格式
-            contentType: "application/x-www-form-urlencoded",     
+            contentType: "application/x-www-form-urlencoded",
             //接收格式
             //html:接收html格式
             //json:接收json格式
+            dataType: "html",
             data: {id : 1 },
             success: function (response) {
                 console.log("postParameter-response: " + JSON.stringify(response));
