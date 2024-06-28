@@ -13,10 +13,10 @@
             public int ID { get; set; }
 
             /// <summary> 標題 </summary>
-            public string Title { get; set; }
+            public string? Title { get; set; }
 
             /// <summary> 內容 </summary>
-            public string Content { get; set; }
+            public string? Content { get; set; }
         }
 
     }

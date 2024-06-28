@@ -17,17 +17,23 @@ namespace WebApplicationBase.Controllers
 
         public IActionResult Index()
         {
-
             return View();
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
-
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            var model =  await _baseTableService.GetAsync(id);
+            return View(model);
+        }
 
+        [HttpPost]
         public async Task<IActionResult> Update(FvmBaseModel.VM_Data model)
         {
             await _baseTableService.UpdateAsync(model);
@@ -36,7 +42,6 @@ namespace WebApplicationBase.Controllers
 
         public IActionResult Delete()
         {
-
             return View();
         }
 

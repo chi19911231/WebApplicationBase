@@ -9,10 +9,16 @@ namespace WebApplicationBase.Services
 
     /// <summary> 主頁 Interface </summary>
     public interface IBaseTableService
-    {        
-        /// <summary> 新增、更新 </summary>
-        Task UpdateAsync(FvmBaseModel.VM_Data model);
+    {
+        /// <summary> 取得單一資料 </summary>
+        /// <param name="id">模型id</param>
+        /// <returns></returns>
+        Task<FvmBaseModel.VM_Data> GetAsync(int id);
 
+        /// <summary> 新增、更新 </summary>
+        /// <param name="model">新增、更新 模型</param>
+        /// <returns></returns>
+        Task UpdateAsync(FvmBaseModel.VM_Data model);
 
     }
 
@@ -24,19 +30,37 @@ namespace WebApplicationBase.Services
         public BaseTableService(WebApplicationBaseContext context)
         {
             this.context = context;
+        }        
+                   
+        public async Task<FvmBaseModel.VM_Data> GetAsync(int id)
+        {
+            var model = await (from baseTables in context.BaseTables
+                               where baseTables.Id == id
+                               select new FvmBaseModel.VM_Data
+                               {
+                                   ID = baseTables.Id,
+                                   Title = baseTables.Title,
+                                   Content = baseTables.Content,
+                               }).FirstOrDefaultAsync();
+
+            if (model == null)
+            {                
+                throw new InvalidDataException("找不到該筆資料");
+            }
+
+            return model;
+
         }
-    
+
         /// <summary> 新增、更新 </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         public async Task UpdateAsync(FvmBaseModel.VM_Data model) 
         {
-
             //寫法1
             //資料異動如果出問題此SQL交易則取消(RollbackAsync)
             await using (var transaction = await context.Database.BeginTransactionAsync())
             {
-                model.ID = 16;
 
                 if (model.ID == 0)
                 {
@@ -66,6 +90,7 @@ namespace WebApplicationBase.Services
 
                 await context.SaveChangesAsync();
                 await transaction.CommitAsync();
+
             }
 
             ////舊寫法
@@ -80,6 +105,4 @@ namespace WebApplicationBase.Services
 
         }
     }
-
-
 }
