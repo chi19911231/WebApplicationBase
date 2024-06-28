@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplicationBase.Services;
 using WebApplicationBase.ViewModels;
+using WebApplicationBase.ViewModels.Base;
 
 namespace WebApplicationBase.Controllers
 {
@@ -15,9 +16,12 @@ namespace WebApplicationBase.Controllers
             _baseTableService = baseTableService;
         }
 
-        public IActionResult Index()
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var model = await _baseTableService.GetSearchListAsync();
+            return View(model);
         }
 
         [HttpGet]
@@ -40,10 +44,21 @@ namespace WebApplicationBase.Controllers
             return View();
         }
 
-        public IActionResult Delete()
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            await _baseTableService.DeleteAsync(id);
+
+            var data = new VM_Response();
+            data.SetMessage("刪除");
+            data.SetData("Data");
+
+            return Json(data);
         }
+
+
+ 
 
     }
 }

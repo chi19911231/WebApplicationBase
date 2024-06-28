@@ -1,6 +1,46 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<WebApplicationBase.ViewModels.FvmBaseModel.VM_Data>
 @{
+
 }
+
+@section scripts {
+    <script>
+        var PageScope = {
+            Url: {
+                Index: "@Url.Action("Index", "BaseTable")",
+                Delete: "@Url.Action("Delete", "BaseTable")",
+            },
+        };
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/js/BaseTable/Index.js")" asp-append-version="true"></script>
+}
+
 Index
+
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <div>
+            <label>
+                ID: @item.ID
+            </label>         
+        </div>
+        <div>
+            <label>
+                Title: @item.Title
+            </label>          
+        </div>
+        <div>
+            <label>
+                Content: @item.Content
+            </label>
+        </div>
+        <div>
+            <button class="deleteBtn" value="@item.ID">
+                刪除
+            </button>
+        </div>
+    }
+}
+

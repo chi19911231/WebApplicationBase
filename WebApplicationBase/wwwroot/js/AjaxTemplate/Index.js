@@ -342,8 +342,8 @@
             //接收格式
             //html:接收html格式
             //json:接收json格式  
-            dataType: "Json",               
-            data: { id: "1" }, // 將 JavaScript 對象轉換為 JSON 字符串
+            dataType: "json",               
+            data: JSON.stringify({ id: "1" }), // 將 JavaScript 對象轉換為 JSON 字符串
             success: function (response) {
                 console.log("postParameterJson-response: " + JSON.stringify(response));
                 alert("Success");
