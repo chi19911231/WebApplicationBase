@@ -88,7 +88,7 @@ namespace WebApplicationBase.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Get_HttpGetParameterJson([FromQuery] string id)
+        public IActionResult Get_HttpGetParameterJson(string id)
         {
             var data = new VM_Response();
             data.SetMessage("Message");
@@ -101,7 +101,7 @@ namespace WebApplicationBase.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Get_HttpPostParameterJson([FromBody] string id)
+        public IActionResult Get_HttpPostParameterJson(string id)
         {
             var data = new VM_Response();
             data.SetMessage("Message");

@@ -102,18 +102,12 @@
         $.ajax({
             url: `${PageScope.Url.HttpGetParameter}?id=${id = 1}`,
             //發送格式:GET,POST
-            type: "GET",
-            //Clinet端傳送Server端的資料格式
-            //傳送格式
-            //application/json:上傳Json格式
-            //application/x-www-form-urlencoded：上傳html表單
-            //multipart/form-data:上傳檔案、圖片
-            contentType: "application/json", 
+            type: "GET",          
             //Server端傳送Clinet端的資料格式
             //接收格式
             //html:接收html格式
             //json:接收json格式
-            dataType: "html",          
+            dataType: "html",    
             success: function (response) {
                 console.log("getParameter-response: " + JSON.stringify(response));
                 alert("Success");
@@ -136,16 +130,17 @@
             url: PageScope.Url.HttpPostParameter,
             //發送格式:GET,POST
             type: "POST",
-            contentType: "application/json", //Clinet端傳送Server端的資料格式
+            //Clinet端傳送Server端的資料格式    
             //傳送格式
-            //application/json:上傳Json格式
             //application/x-www-form-urlencoded：上傳html表單
+            //application/json:上傳Json格式     
             //multipart/form-data:上傳檔案、圖片
-            dataType: "html",//Server端傳送Clinet端的資料格式
+            //dataType: "html",//Server端傳送Clinet端的資料格式
+            contentType: "application/x-www-form-urlencoded",     
             //接收格式
             //html:接收html格式
             //json:接收json格式
-            data: { id: 1 },
+            data: {id : 1 },
             success: function (response) {
                 console.log("postParameter-response: " + JSON.stringify(response));
                 alert("Success");
@@ -309,7 +304,7 @@
             //application/json:上傳Json格式
             //application/x-www-form-urlencoded：上傳html表單
             //multipart/form-data:上傳檔案、圖片
-            contentType: "application/json", 
+            contentType: "application/x-www-form-urlencoded", 
             //Server端傳送Clinet端的資料格式
             //接收格式
             //html:接收html格式
@@ -342,7 +337,7 @@
             //application/json:上傳Json格式
             //application/x-www-form-urlencoded：上傳html表單
             //multipart/form-data:上傳檔案、圖片
-            contentType: "application/json",
+            contentType: "application/x-www-form-urlencoded",
             //Server端傳送Clinet端的資料格式
             //接收格式
             //html:接收html格式
@@ -359,7 +354,6 @@
             }
         });
     }
-
 
     //Ajax-GetObjectJson
     //傳送格式:複雜繫節
