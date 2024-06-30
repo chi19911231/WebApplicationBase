@@ -3,8 +3,8 @@
 
         $(".deleteBtn").on("click", function () {
 
-            //attr:屬性(attr)：網頁初始載入時的狀態
-            //prop:屬性(prop)：網頁初始後改變的狀態
+            //attr:網頁初始載入時的狀態
+            //prop:網頁初始後改變的狀態
             let btnValue = $(this).attr("value");
 
             deleteModel(btnValue);
