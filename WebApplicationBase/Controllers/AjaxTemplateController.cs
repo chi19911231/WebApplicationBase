@@ -39,7 +39,7 @@ namespace WebApplicationBase.Controllers
         /// <summary> </summary>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Get_HttpPostParameterPartialView([FromBody] int id)
+        public IActionResult Get_HttpPostParameterPartialView(int id)
         {
             return PartialView("_PartialHttpPostParameter");
         }
