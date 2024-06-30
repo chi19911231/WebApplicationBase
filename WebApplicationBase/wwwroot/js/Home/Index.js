@@ -2,8 +2,8 @@
     
     $(function () {
 
-        $(".text-center").on("click", () => {
-            alert(`Go`);         
+        $(".Welcome").on("click", () => {
+            alert(`Welcome`);         
         })
 
         $(".GetListData").on("click", () => {
@@ -20,6 +20,11 @@
             alert(`AjaxTemplate`);
             location.href = `${PageScope.Url.AjaxTemplateIndex}`;
         })
+
+        $(".BaseTable").on("click", () => {
+            location.href = `${PageScope.Url.BaseTableIndex}`;
+        })
+    
 
     });        
    

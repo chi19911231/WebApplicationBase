@@ -1,6 +1,10 @@
 ﻿(function ($) {
     $(function () {
 
+        $(".createBtn").on("click", () => {
+            location.href = PageScope.Url.Create;
+        })
+
         $(".deleteBtn").on("click", function () {
 
             //attr:網頁初始載入時的狀態
@@ -72,10 +76,11 @@
             dataType: "json",
             data: { id: id },
             success: function (response) {
+
                 console.log("postParameterJson-response: " + JSON.stringify(response));
-                Swal.fire("刪除成功");
-                //alert(JSON.stringify(response));
-                location.href = PageScope.Url.Index;
+                
+                confirmHref();
+
             },
             error: function (xhr, status, error) {
                 console.log("Error: " + error);
@@ -84,5 +89,16 @@
         });
     }
 
+    let confirmHref = () => {
+        Swal.fire({
+            //標頭
+            title: `刪除成功`,
+            showCancelButton: false,
+        }).then(function (result) {
+            if (result.value) {
+                location.href = PageScope.Url.Index;
+            }
+        });
+    }
     
 })(jQuery);

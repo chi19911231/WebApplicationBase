@@ -9,13 +9,14 @@
                 GetList: "@Url.Action("GetListData", "Home")",
                 GetAsync: "@Url.Action("GetData", "Home")",
                 AjaxTemplateIndex: "@Url.Action("Index", "AjaxTemplate")",
+                BaseTableIndex: "@Url.Action("Index", "BaseTable")",
             },
         };
     </script>
     <script type="text/javascript" src="@Url.Content("~/js/Home/Index.js")" asp-append-version="true"></script>
 }
 
-<div class="text-center">
+<div class="text-center Welcome">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
@@ -26,6 +27,9 @@
 <div class="text-center GetData">
     GetData
 </div>
-<div class="text-center AjaxTemplate">    
+<div class="text-center AjaxTemplate">
     AjaxTemplate
+</div>
+<div class="text-center BaseTable">
+    BaseTable
 </div>

@@ -8,6 +8,7 @@
         var PageScope = {
             Url: {
                 Index: "@Url.Action("Index", "BaseTable")",
+                Create: "@Url.Action("Create", "BaseTable")",
                 Delete: "@Url.Action("Delete", "BaseTable")",
             },
         };
@@ -15,32 +16,43 @@
     <script type="text/javascript" src="@Url.Content("~/js/BaseTable/Index.js")" asp-append-version="true"></script>
 }
 
-Index
+<h1>Index</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-11"></div>
+        <div class="col-1">
+            <button class="btn btn-success createBtn">新增</button>
+        </div>
+    </div>
+</div>
 
 @if (Model != null)
 {
+
     @foreach (var item in Model)
     {
-        <div>
-            <label>
-                ID: @item.ID
-            </label>         
+        <hr />
+        <div class="mb-3 row">
+            <div class="col-1"><label for="Title" class="form-label">ID:</label></div>
+            <div class="col-3">@item.ID</div>
+            <div class="col-8"></div>
         </div>
-        <div>
-            <label>
-                Title: @item.Title
-            </label>          
+            
+        <div class="mb-3 row">
+            <div class="col-1"><label for="Title" class="form-label">Title:</label></div>
+            <div class="col-3">@item.Title</div>
+            <div class="col-8"></div>
         </div>
-        <div>
-            <label>
-                Content: @item.Content
-            </label>
+
+        <div class="mb-3 row">
+            <div class="col-1"><label for="Title" class="form-label">Content:</label></div>
+            <div class="col-3">@item.Content</div>
+            <div class="col-8"></div>
         </div>
+
         <div>
-            <button class="deleteBtn" value="@item.ID">
-                刪除
-            </button>
+            <button class="btn btn-danger deleteBtn" value="@item.ID">刪除</button>
         </div>
+
     }
 }
-
