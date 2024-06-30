@@ -3,8 +3,8 @@
 
         $(".deleteBtn").on("click", function () {
 
-            //attr:屬性(attr)：這些是更靜態的，表示元素初始加載時的狀態。
-            //prop:屬性(prop)：這些是更動態的，並且可以隨著用戶與頁面的交互而改變。例如，複選框的 checked 屬性在用戶選中或取消選中時會改變。   
+            //attr:屬性(attr)：網頁初始載入時的狀態
+            //prop:屬性(prop)：網頁初始後改變的狀態
             let btnValue = $(this).attr("value");
 
             deleteModel(btnValue);
@@ -14,9 +14,47 @@
     });
 
     let deleteModel = function (id) {
-        
-        //alert(`id=${id}`);
-        //console.log(`id=${id}`);
+
+        //SweetAlert2
+        //Swal.fire({
+        //    //標頭
+        //    title: "是否刪除",
+        //    //內容
+        //    text: "是否刪除?",
+        //    //圖示
+        //    icon: "success",
+        //});
+
+        //SweetAlert2
+        Swal.fire({
+            //標頭
+            title: `是否刪除？`,
+            //內容
+            text: `刪除此筆資料`,
+            //圖示
+            icon: "warning",
+            //是否啟用取消按鈕
+            showCancelButton: true,
+            //確認按鈕顏色
+            confirmButtonColor: "#3085d6",
+            //確認按鈕文字
+            confirmButtonText: "刪除",
+            //取消按鈕顏色
+            cancelButtonColor: "#d33",
+            //取消按鈕文字
+            cancelButtonText: "取消",
+        }).then(function (result) {
+            if (result.value) {
+                //Swal.fire("您按了OK");
+                deleteBaseTable(id);
+            }
+            else {
+                //Swal.fire("您選擇了Cancel");
+            }
+        });
+    }
+
+    let deleteBaseTable = (id) => {
         $.ajax({
             url: PageScope.Url.Delete,
             //發送格式:GET,POST
@@ -32,13 +70,12 @@
             //html:接收html格式
             //json:接收json格式  
             dataType: "json",
-            data: {id: id }, // 正確地將數據序列化為JSON對象
+            data: { id: id },
             success: function (response) {
                 console.log("postParameterJson-response: " + JSON.stringify(response));
-                alert(JSON.stringify(response));
-
+                Swal.fire("刪除成功");
+                //alert(JSON.stringify(response));
                 location.href = PageScope.Url.Index;
-
             },
             error: function (xhr, status, error) {
                 console.log("Error: " + error);
@@ -47,7 +84,5 @@
         });
     }
 
-
     
-
 })(jQuery);

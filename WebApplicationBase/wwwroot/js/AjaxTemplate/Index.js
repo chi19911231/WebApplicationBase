@@ -248,7 +248,8 @@
 
         $.ajax({
             url: PageScope.Url.HttpGetJson,
-            type: "GET",//GET,POST
+            //發送格式:GET,POST
+            type: "GET",
             //Server端傳送Clinet端的資料格式
             //接收格式
             //html:接收html格式
@@ -274,7 +275,8 @@
 
         $.ajax({
             url: PageScope.Url.HttpPostJson,
-            type: "POST",//GET,POST
+            //發送格式:GET,POST
+            type: "POST",
             dataType: "Json",//Server端傳送Clinet端的資料格式
             //接收格式
             //html:接收html格式
