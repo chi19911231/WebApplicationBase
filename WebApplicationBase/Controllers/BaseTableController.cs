@@ -40,7 +40,7 @@ namespace WebApplicationBase.Controllers
         public async Task<IActionResult> Update(FvmBaseModel.VM_Data model)
         {
             await _baseTableService.UpdateAsync(model);
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -54,7 +54,5 @@ namespace WebApplicationBase.Controllers
 
             return Json(data);
         }
- 
-
     }
 }

@@ -5,6 +5,11 @@
             location.href = PageScope.Url.Create;
         })
 
+        $(".updateBtn").on("click", function () {
+            let btnValue = $(this).attr("value");
+            location.href = `${PageScope.Url.Update}?id=${btnValue}`;
+        })
+
         $(".deleteBtn").on("click", function () {
 
             //attr:網頁初始載入時的狀態

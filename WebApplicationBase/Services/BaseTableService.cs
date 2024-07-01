@@ -11,7 +11,6 @@ namespace WebApplicationBase.Services
     /// <summary> 主頁 Interface </summary>
     public interface IBaseTableService
     {
-
         /// <summary> 取得資料 </summary>
         /// <returns></returns>
         Task<List<FvmBaseModel.VM_Data>> GetSearchListAsync();
@@ -49,7 +48,8 @@ namespace WebApplicationBase.Services
         /// <returns></returns>
         public async Task<List<FvmBaseModel.VM_Data>> GetSearchListAsync()
         {
-            var query = from baseTables in context.BaseTables
+            var query = from baseTables in context.BaseTables 
+                        orderby baseTables.Id descending
                         select new FvmBaseModel.VM_Data
                         {
                             ID = baseTables.Id,
@@ -100,7 +100,6 @@ namespace WebApplicationBase.Services
             //資料異動如果出問題此SQL交易則取消(RollbackAsync)
             await using (var transaction = await context.Database.BeginTransactionAsync())
             {
-
                 if (model.ID == 0)
                 {
                     var baseTable = new BaseTable()

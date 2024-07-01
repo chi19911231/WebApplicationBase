@@ -9,6 +9,7 @@
             Url: {
                 Index: "@Url.Action("Index", "BaseTable")",
                 Create: "@Url.Action("Create", "BaseTable")",
+                Update: "@Url.Action("Update", "BaseTable")",
                 Delete: "@Url.Action("Delete", "BaseTable")",
             },
         };
@@ -28,31 +29,23 @@
 
 @if (Model != null)
 {
-
+    <div class="mb-3 row">
+        <div class="col-3"><label class="form-label">Title</label></div>
+        <div class="col-3"><label class="form-label">Content</label></div>
+        <div class="col-4"></div>
+        <div class="col-2">功能</div>
+    </div>
     @foreach (var item in Model)
     {
         <hr />
         <div class="mb-3 row">
-            <div class="col-1"><label for="Title" class="form-label">ID:</label></div>
-            <div class="col-3">@item.ID</div>
-            <div class="col-8"></div>
-        </div>
-            
-        <div class="mb-3 row">
-            <div class="col-1"><label for="Title" class="form-label">Title:</label></div>
             <div class="col-3">@item.Title</div>
-            <div class="col-8"></div>
-        </div>
-
-        <div class="mb-3 row">
-            <div class="col-1"><label for="Title" class="form-label">Content:</label></div>
             <div class="col-3">@item.Content</div>
-            <div class="col-8"></div>
+            <div class="col-4"></div>
+            <div class="col-2">
+              <button class="btn btn-secondary updateBtn" value="@item.ID">編輯</button>
+              <button class="btn btn-danger deleteBtn" value="@item.ID">刪除</button>
+            </div>
         </div>
-
-        <div>
-            <button class="btn btn-danger deleteBtn" value="@item.ID">刪除</button>
-        </div>
-
     }
 }

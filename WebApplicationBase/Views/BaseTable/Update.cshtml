@@ -3,20 +3,35 @@
 
 }
 
-<h1>Update</h1>
+@section scripts {
+    <script>
+        var PageScope = {
+            Url: {
 
-<form asp-action="Update" method="post">
+            },
+        };
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/js/BaseTable/Update.js")" asp-append-version="true"></script>
+}
+
+<h1>Update</h1>
+<form id="postform" method="post" asp-action="Update">
     @Html.HiddenFor(x => x.ID)
+    <div class="mb-3 row">
+        <div class="col-1"><label for="Title" class="form-label">ID:</label></div>
+        <div class="col-3">@Model.ID</div>
+        <div class="col-8"></div>
+    </div>
     <div class="mb-3 row">
         <div class="col-1"><label for="Title" class="form-label">Title:</label></div>
         <div class="col-3">@Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Title" })</div>
         <div class="col-8"></div>
     </div>
-
     <div class="mb-3 row">
         <div class="col-1"><label for="Content" class="form-label">Content:</label></div>
         <div class="col-3">@Html.TextBoxFor(x => x.Content, new { @class = "form-control", placeholder = "Content" })</div>
         <div class="col-8"></div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary updateBtn">送出</button>
+    @* <button type="submit" class="btn btn-primary">送出</button> *@
 </form>
