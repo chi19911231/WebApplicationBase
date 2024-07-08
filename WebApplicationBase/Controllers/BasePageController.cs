@@ -8,16 +8,12 @@ namespace WebApplicationBase.Controllers
 {
     public class BasePageController : Controller
     {
-  
-
         private readonly WebApplicationBaseContext _context;
 
         public BasePageController(WebApplicationBaseContext context)
         {
             _context = context;
         }
-
-
 
         public async Task<IActionResult> Index(          
             string sortOrder,
@@ -99,11 +95,7 @@ namespace WebApplicationBase.Controllers
 
             // 6.返回結果
             return View(await PaginatedList<FvmBasePage.VM_Data>.ListPageAsync(query.AsNoTracking(), pageNumber ?? 1, pageSize));
-        }
-
-
-
- 
+        }        
         public async Task<IActionResult> Index1(
             string sortOrder,
             string currentFilterCustomer,
@@ -138,7 +130,6 @@ namespace WebApplicationBase.Controllers
             }
 
 
-
             var Data = await PaginatedList<FvmBasePage1.VM_Data>.ListPageAsync(query.AsNoTracking(), pageNumber ?? 1, pageSize);
 
 
@@ -149,13 +140,9 @@ namespace WebApplicationBase.Controllers
                 PageIndex  = Data.PageIndex,
             };
 
-
             // 6.返回結果
             return View(model);
         }
-
-
-
         public async Task<IActionResult> Index2(FvmBasePage1.VM_PageData searchModel)
         {
 

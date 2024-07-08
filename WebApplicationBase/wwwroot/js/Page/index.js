@@ -7,9 +7,11 @@
         let pages = pageTemplate(pageIndex, pagesTotal);
 
         $("#page").append(pages);
+        //設定按鈕樣式
         $(".btnPage").addClass("btn btn-link");
+        //設定下拉樣式
+        //$(".selectGoToPage").addClass("form-select form-select-sm-3");
 
-        $(".selectGoToPage").addClass("form-select form-select-sm-3");
         $(".selectGoToPage").on("change", function () {
             goToPage();
         })
@@ -22,38 +24,27 @@
             btnNext(pageIndex);
         })
 
-    });   
-
-
-    let clearSearch = function () {
-
-    }
+    });
 
     let goToPage = function () {
         let selectGoToPage = $(".selectGoToPage option:selected").val();
         $("#PageNumber").val(Number(selectGoToPage));
-        $("#form_search").get(0).submit();
+        $("#form").get(0).submit();
     }
 
+    //下一頁
     let btnPrev = function (pageIndex) {
-
         $("#PageNumber").val(Number(pageIndex) - 1); 
-        $("#form_search").get(0).submit();
-
+        $("#form").get(0).submit();
     }
-    
+
+    //上一頁
     let btnNext = function (pageIndex) {
-
         $("#PageNumber").val(Number(pageIndex) + 1);
-        $("#form_search").get(0).submit();
-
+        $("#form").get(0).submit();
     }
 
-    let changePageSize = function ()
-    {
-        $("#form_search").get(0).submit();
-    }
-
+    //分頁模板
     let pageTemplate = function (pageIndex, pagesTotal) {
 
         let template = "";
