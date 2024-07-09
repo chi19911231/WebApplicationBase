@@ -1,0 +1,112 @@
+﻿@using WebApplicationBase.Enums;
+@model WebApplicationBase.ViewModels.FvmUserInfo.VM_Data
+@{
+    var title = "帳號";
+    var type = Model == null ? "新增" : "更新" ;  
+}
+
+@section scripts {
+    <script>
+        var PageScope = {
+            Url: {
+                Index: "@Url.Action("index", "UserInfo")",
+            },
+        };
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/js/UserInfo/Update.js")" asp - append - version="true"></script>
+}
+
+<h1>@type@title</h1>
+<form id="form" action="Update" method="post">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x=>x.ID)
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Acount)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Acount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Acount, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Password)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password" })
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Gender)                
+            </div>
+            <div class="col-2">
+                @Html.RadioButtonFor(x => x.Gender, (int)GenderEnum.Male)男
+                @Html.RadioButtonFor(x => x.Gender, (int)GenderEnum.Female)女
+                @Html.RadioButtonFor(x => x.Gender, (int)GenderEnum.Other)其他
+                @Html.ValidationMessageFor(x => x.Gender, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.PersonId)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.PersonId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.PersonId, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Email)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Phone)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Address)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+    </div>   
+    <div class="d-flex justify-content-center">
+        <input type="submit" class="btn btn-success mx-2" value="送出" />
+        <input type="button" class="btn btn-secondary btnBack mx-2" value="返回" />
+    </div>
+</form>

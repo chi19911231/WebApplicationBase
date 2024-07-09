@@ -1,0 +1,90 @@
+﻿@model WebApplicationBase.ViewModels.FvmUserInfo.VM_Data
+
+@{
+}
+
+@section scripts {
+    <script>
+        var PageScope = {
+            Url: {
+                Index: "@Url.Action("BasePage", "Index2")",
+            },
+           
+        };
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/js/Page/Index.js")" asp-append-version="true"></script>
+}
+
+<h1>建立帳號</h1>
+
+<form id="form" action="Update" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Acount)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Acount, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(x => x.Acount, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+    
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Password)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+   
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+   
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Email)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+   
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Phone)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+
+    </div>
+
+  
+    <input type="submit" value="送出"/>
+</form>
+
+

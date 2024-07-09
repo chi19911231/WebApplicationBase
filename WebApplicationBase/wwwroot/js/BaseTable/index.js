@@ -5,7 +5,7 @@
             location.href = PageScope.Url.Create;
         })
 
-        $(".updateBtn").on("click", function () {
+        $(".btnUpdate").on("click", function () {
             let btnValue = $(this).attr("value");
             location.href = `${PageScope.Url.Update}?id=${btnValue}`;
         })

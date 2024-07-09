@@ -1,6 +1,6 @@
 ﻿(function ($) {
     $(function () {
-        $(".updateBtn").on("click", function () {
+        $(".btnUpdate").on("click", function () {
             Swal.fire({
                 //標頭
                 title: `資料送出`,

@@ -27,7 +27,7 @@ namespace WebApplicationBase.Controllers
         {
             // 1.搜尋邏輯
             var query = from baseTables in _context.BaseTables                    
-                        select new FvmBasePage.VM_Data
+                        select new FvmBaseModel.VM_Data
                         {                             
                             ID = baseTables.Id ,                             
                             Title= baseTables.Title ,                             
@@ -94,7 +94,7 @@ namespace WebApplicationBase.Controllers
             ViewData["pageSize"] = pageSize;
 
             // 6.返回結果
-            return View(await PaginatedList<FvmBasePage.VM_Data>.ListPageAsync(query.AsNoTracking(), pageNumber ?? 1, pageSize));
+            return View(await PaginatedList<FvmBaseModel.VM_Data>.ListPageAsync(query.AsNoTracking(), pageNumber ?? 1, pageSize));
         }        
         public async Task<IActionResult> Index1(
             string sortOrder,
@@ -110,7 +110,7 @@ namespace WebApplicationBase.Controllers
         {
             // 1.搜尋邏輯
             var query = from baseTables in _context.BaseTables
-                        select new FvmBasePage1.VM_Data
+                        select new FvmBasePage.VM_Data
                         {
                             ID = baseTables.Id,
                             Title = baseTables.Title,
@@ -130,10 +130,10 @@ namespace WebApplicationBase.Controllers
             }
 
 
-            var Data = await PaginatedList<FvmBasePage1.VM_Data>.ListPageAsync(query.AsNoTracking(), pageNumber ?? 1, pageSize);
+            var Data = await PaginatedList<FvmBasePage.VM_Data>.ListPageAsync(query.AsNoTracking(), pageNumber ?? 1, pageSize);
 
 
-            var model = new FvmBasePage1.VM_PageData()
+            var model = new FvmBasePage.VM_PageData()
             {
                 ListData = Data,
                 PagesTotal = Data.TotalPages,           
@@ -143,21 +143,21 @@ namespace WebApplicationBase.Controllers
             // 6.返回結果
             return View(model);
         }
-        public async Task<IActionResult> Index2(FvmBasePage1.VM_PageData searchModel)
+        public async Task<IActionResult> Index2(FvmBasePage.VM_PageData searchModel)
         {
 
             // 1.搜尋邏輯
             var query = from baseTables in _context.BaseTables
-                        select new FvmBasePage1.VM_Data
+                        select new FvmBasePage.VM_Data
                         {
                             ID = baseTables.Id,
                             Title = baseTables.Title,
                             Content = baseTables.Content,
                         };
 
-            var Data = await PaginatedList<FvmBasePage1.VM_Data>.ListPageAsync(query.AsNoTracking(), searchModel.PageNumber ?? 1, searchModel.PageSize);
+            var Data = await PaginatedList<FvmBasePage.VM_Data>.ListPageAsync(query.AsNoTracking(), searchModel.PageNumber ?? 1, searchModel.PageSize);
 
-            var model = new FvmBasePage1.VM_PageData()
+            var model = new FvmBasePage.VM_PageData()
             {
                 ListData = Data,
                 PageIndex = Data.PageIndex,

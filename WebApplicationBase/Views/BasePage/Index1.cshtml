@@ -1,4 +1,4 @@
-﻿@model WebApplicationBase.ViewModels.FvmBasePage1.VM_PageData
+﻿@model WebApplicationBase.ViewModels.FvmBasePage.VM_PageData
 @*  @model WebApplicationBase.Commons.PaginatedList<WebApplicationBase.ViewModels.FvmBasePage.VM_Data> *@
 @{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
@@ -74,7 +74,7 @@
                 <div class="col-3">@item.Content</div>
                 <div class="col-4"></div>
                 <div class="col-2">
-                    <button class="btn btn-secondary updateBtn" value="@item.ID">編輯</button>
+                    <button class="btn btn-secondary btnUpdate" value="@item.ID">編輯</button>
                     <button class="btn btn-danger deleteBtn" value="@item.ID">刪除</button>
                 </div>
             </div>

@@ -15,7 +15,6 @@ namespace WebApplicationBase.Controllers
             _baseTableService = baseTableService;
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Index()
         {

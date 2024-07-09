@@ -1,0 +1,71 @@
+﻿@using WebApplicationBase.Enums;
+@model WebApplicationBase.ViewModels.FvmUserInfo.VM_PageData
+
+@section scripts {
+    <script>
+        var PageScope = {
+            Url: {
+                Index:"@Url.Action("Index", "UserInfo")",
+                Create:"@Url.Action("Create", "UserInfo")",
+                Update:"@Url.Action("Update", "UserInfo")",
+                Delete:"@Url.Action("Delete", "UserInfo")",
+            },
+            Page: {
+                PageIndex: @Model.PageIndex,
+                PagesTotal: @Model.PagesTotal,
+                PagePreviousDisabled: "@Model.HasPreviousPage",
+                PageNextDisabled: "@Model.HasNextPage",
+            },
+            StatusType: {
+                Success: @((int)StatusEnum.Success),
+                Fail: @((int)StatusEnum.Fail),
+            },
+        };
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/js/Page/Index.js")" asp-append-version="true"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/UserInfo/Index.js")" asp-append-version="true"></script>
+}
+
+@{
+}
+
+<div class="row mb-3">
+    <div class="col-2">使用者資訊列表</div>
+    <div class="col-8"></div>
+    <div class="col-2">
+        <button type="button" class="btn btn-success btnCreate">新增</button>
+    </div>
+</div>
+<form id="form" asp-action="Index" method="get" class="mt-3">
+    @if (Model.PageListData != null)
+    {
+        <div class="row mb-3">
+            <div class="col-3">              
+                帳號
+            </div>
+            <div class="col-3">             
+                姓名
+            </div>        
+            <div class="col-4"></div>
+            <div class="col-2">功能</div>
+        </div>
+        @foreach (var item in Model.PageListData)
+        {       
+            <div class="row mb-3">
+                <div class="col-3">
+                    @item.Acount
+                </div>              
+                <div class="col-3">
+                   @item.Name
+                </div>           
+                <div class="col-4"></div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-primary btnEdit" value="@item.ID">編輯</button>
+                    <button type="button" class="btn btn-danger btnDelete" value="@item.ID">刪除</button>
+                </div>
+             
+            </div>           
+        }
+    }
+    <div id="page" class="form-inline text-center"></div>
+</form>

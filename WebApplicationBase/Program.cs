@@ -24,10 +24,9 @@ builder.Services.AddControllersWithViews();
 //Transient(一次性)：每次注入都建立一個新的
 //builder.Services.AddTransient<IHomeService, HomeService>();
 builder.Services.AddSingleton<IHomeService, HomeService>();
-
 //因DB注入不適合用Singleton
 builder.Services.AddScoped<IBaseTableService, BaseTableService>();
-
+builder.Services.AddScoped<IUserInfoService, UserInfoService>();
 
 
 var app = builder.Build();

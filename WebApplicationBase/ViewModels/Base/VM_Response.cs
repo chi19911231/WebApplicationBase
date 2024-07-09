@@ -1,7 +1,12 @@
-﻿namespace WebApplicationBase.ViewModels.Base
+﻿using WebApplicationBase.Enums;
+
+namespace WebApplicationBase.ViewModels.Base
 {
+
     public class VM_Response
     {
+        /// <summary> Status(1:Success 2:Fail) </summary>
+        public StatusEnum Status { get; set; }
 
         /// <summary> Message </summary>
         public string Message { get; set; }
@@ -26,6 +31,32 @@
             Data = data;
             return this;
         }
+
+        /// <summary>
+        /// 設定成功失敗狀態
+        /// </summary>
+        /// <returns></returns>
+        public VM_Response SetStatus(StatusEnum status)
+        {
+            Status = status;
+            return this;
+        }
+
+        /// <summary> 設定成功 </summary>
+        /// <returns></returns>
+        public VM_Response SetSuccess()
+        {
+            Status = StatusEnum.Success;
+            return this;
+        }
+
+        /// <summary> 設定失敗 </summary>
+        /// <returns></returns>
+        public VM_Response SetFail()
+        {
+            Status = StatusEnum.Fail;
+            return this;
+        }    
 
     }
 }

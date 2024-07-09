@@ -1,10 +1,10 @@
 ﻿(function ($) {     
     $(function () {
         
-        $(".get").on("click", function () {       
+        $(".get").on("click", function () {
             get();
         })
-        $(".post").on("click", function () {        
+        $(".post").on("click", function () {
             post();     
         })
 

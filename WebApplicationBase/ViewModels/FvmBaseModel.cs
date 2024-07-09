@@ -1,11 +1,8 @@
 ﻿namespace WebApplicationBase.ViewModels
 {
-
     /// <summary> 範本 模型 </summary>
     public class FvmBaseModel
     {
-
-
         /// <summary> 範本 模型 </summary>
         public class VM_Data
         {

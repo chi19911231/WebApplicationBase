@@ -66,6 +66,7 @@ namespace WebApplicationBase.Services
 
             return model;
 
+        
         }
 
         /// <summary> 取得單一資料 </summary>

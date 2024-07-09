@@ -1,4 +1,4 @@
-﻿@model WebApplicationBase.Commons.PaginatedList<WebApplicationBase.ViewModels.FvmBasePage.VM_Data>
+﻿@model WebApplicationBase.Commons.PaginatedList<WebApplicationBase.ViewModels.FvmBaseModel.VM_Data>
 @* List<WebApplicationBase.ViewModels.FvmBaseModel.VM_Data> *@
 
 @{
@@ -62,7 +62,7 @@
                 <div class="col-3">@item.Content</div>
                 <div class="col-4"></div>
                 <div class="col-2">
-                    <button class="btn btn-secondary updateBtn" value="@item.ID">編輯</button>
+                    <button class="btn btn-secondary btnUpdate" value="@item.ID">編輯</button>
                     <button class="btn btn-danger deleteBtn" value="@item.ID">刪除</button>
                 </div>
             </div>
