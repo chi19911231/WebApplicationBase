@@ -7,14 +7,14 @@
     <script>
         var PageScope = {
             Url: {
-                Index: "@Url.Action("Index", "BaseTable")",
-                Create: "@Url.Action("Create", "BaseTable")",
-                Update: "@Url.Action("Update", "BaseTable")",
-                Delete: "@Url.Action("Delete", "BaseTable")",
+                Index: "@Url.Action("Index", "BaseTemplate")",
+                Create: "@Url.Action("Create", "BaseTemplate")",
+                Update: "@Url.Action("Update", "BaseTemplate")",
+                Delete: "@Url.Action("Delete", "BaseTemplate")",
             },
         };
     </script>
-    <script type="text/javascript" src="@Url.Content("~/js/BaseTable/Index.js")" asp-append-version="true"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/BaseTemplate/Index.js")" asp-append-version="true"></script>
 }
 
 <h1>Index</h1>

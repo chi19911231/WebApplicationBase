@@ -61,12 +61,11 @@
             location.href = `${PageScope.Url.AjaxTemplateIndex}`;
         })
 
-        $(".BaseTable").on("click", () => {
+        $(".BaseTemplate").on("click", () => {
             location.href = `${PageScope.Url.BaseTableIndex}`;
-        })
-    
+        })    
 
-    });        
+    });
 
 
     let deleteUserInfo = (id) => {
@@ -82,7 +81,6 @@
                     confirmHref("刪除成功",null);
                 }
                 else {
-
                     console.log("postParameterJson-response: " + JSON.stringify(response));
                     confirmHref("刪除失敗", response.message);
                 }
@@ -108,6 +106,5 @@
             }
         });
     }
-
 
 })(jQuery);

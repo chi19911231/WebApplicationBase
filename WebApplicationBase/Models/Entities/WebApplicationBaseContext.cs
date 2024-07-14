@@ -52,7 +52,7 @@ public partial class WebApplicationBaseContext : DbContext
                 .HasComment("ID")
                 .HasColumnName("ID");
             entity.Property(e => e.Acount)
-                .HasMaxLength(10)
+                .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasComment("帳號");
             entity.Property(e => e.Address)

@@ -21,8 +21,8 @@
             location.href = `${PageScope.Url.AjaxTemplateIndex}`;
         })
 
-        $(".BaseTable").on("click", () => {
-            location.href = `${PageScope.Url.BaseTableIndex}`;
+        $(".BaseTemplate").on("click", () => {
+            location.href = `${PageScope.Url.BaseTemplateIndex}`;
         })
     
 

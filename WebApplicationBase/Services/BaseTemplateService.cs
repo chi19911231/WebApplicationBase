@@ -9,7 +9,7 @@ namespace WebApplicationBase.Services
 {
 
     /// <summary> 主頁 Interface </summary>
-    public interface IBaseTableService
+    public interface IBaseTemplateService
     {
         /// <summary> 取得資料 </summary>
         /// <returns></returns>
@@ -33,13 +33,13 @@ namespace WebApplicationBase.Services
     }
 
     /// <summary> 主頁 Service </summary>
-    public class BaseTableService: IBaseTableService
+    public class BaseTemplateService: IBaseTemplateService
     {
         private readonly WebApplicationBaseContext context;
 
         /// <summary> 建構子 </summary>
         /// <param name="context"></param>
-        public BaseTableService(WebApplicationBaseContext context)
+        public BaseTemplateService(WebApplicationBaseContext context)
         {
             this.context = context;
         }

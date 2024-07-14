@@ -5,20 +5,20 @@ using WebApplicationBase.ViewModels.Base;
 
 namespace WebApplicationBase.Controllers
 {
-    public class BaseTableController : Controller
+    public class BaseTemplateController : Controller
     {
-        private readonly IBaseTableService _baseTableService;
+        private readonly IBaseTemplateService _baseTemplateService;
 
         /// <summary> 建構子 </summary>
-        public BaseTableController(IBaseTableService baseTableService) 
+        public BaseTemplateController(IBaseTemplateService baseTableService) 
         {
-            _baseTableService = baseTableService;
+            _baseTemplateService = baseTableService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var model = await _baseTableService.GetSearchListAsync();
+            var model = await _baseTemplateService.GetSearchListAsync();
             return View(model);
         }
 
@@ -31,21 +31,21 @@ namespace WebApplicationBase.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int id)
         {
-            var model =  await _baseTableService.GetAsync(id);
+            var model =  await _baseTemplateService.GetAsync(id);
             return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> Update(FvmBaseModel.VM_Data model)
         {
-            await _baseTableService.UpdateAsync(model);
+            await _baseTemplateService.UpdateAsync(model);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            await _baseTableService.DeleteAsync(id);
+            await _baseTemplateService.DeleteAsync(id);
 
             var data = new VM_Response();
             data.SetMessage("刪除");
