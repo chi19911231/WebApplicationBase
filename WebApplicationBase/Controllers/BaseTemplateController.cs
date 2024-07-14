@@ -25,7 +25,7 @@ namespace WebApplicationBase.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View("Update");
         }
 
         [HttpGet]

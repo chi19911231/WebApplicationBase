@@ -1,5 +1,11 @@
 ﻿@model WebApplicationBase.ViewModels.FvmBaseModel.VM_Data
 @{
+    var ModelID = 0;
+
+    if(Model != null)
+    {
+        ModelID = @Model.ID;
+    }
 
 }
 
@@ -19,7 +25,7 @@
     @Html.HiddenFor(x => x.ID)
     <div class="mb-3 row">
         <div class="col-1"><label for="Title" class="form-label">ID:</label></div>
-        <div class="col-3">@Model.ID</div>
+        <div class="col-3">@ModelID</div>
         <div class="col-8"></div>
     </div>
     <div class="mb-3 row">
