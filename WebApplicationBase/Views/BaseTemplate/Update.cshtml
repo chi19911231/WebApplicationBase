@@ -1,19 +1,17 @@
 ﻿@model WebApplicationBase.ViewModels.FvmBaseModel.VM_Data
 @{
     var ModelID = 0;
-
     if(Model != null)
     {
         ModelID = @Model.ID;
     }
-
 }
 
 @section scripts {
     <script>
         var PageScope = {
             Url: {
-
+       
             },
         };
     </script>
@@ -21,7 +19,7 @@
 }
 
 <h1>Update</h1>
-<form id="postform" method="post" asp-action="Update">
+<form id="form" method="post" asp-action="Update">
     @Html.HiddenFor(x => x.ID)
     <div class="mb-3 row">
         <div class="col-1"><label for="Title" class="form-label">ID:</label></div>

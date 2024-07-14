@@ -2,6 +2,10 @@
     
     $(function () {
 
+        $(".Welcome").on("click", () => {
+            alert(`Welcome`);         
+        })
+
         $(".btnCreate").on("click", function () {
             location.href = `${PageScope.Url.Create}`;
         })
@@ -40,11 +44,7 @@
                     //Swal.fire("您選擇了Cancel");
                 }
             });
-        })
-
-        $(".Welcome").on("click", () => {
-            alert(`Welcome`);         
-        })
+        })      
 
         $(".GetListData").on("click", () => {
             alert(`GetListData`); 
@@ -66,7 +66,6 @@
         })    
 
     });
-
 
     let deleteUserInfo = (id) => {
         $.ajax({

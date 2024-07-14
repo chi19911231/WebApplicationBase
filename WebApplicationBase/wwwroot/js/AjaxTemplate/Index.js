@@ -213,20 +213,17 @@
             url: PageScope.Url.HttpPostObject,
             //發送格式:GET,POST
             type: "POST",
-
             //Clinet端傳送Server端的資料格式
             //傳送格式
             //application/x-www-form-urlencoded：上傳html表單
             //application/json:上傳Json格式
             //multipart/form-data:上傳檔案、圖片      
             contentType: "application/json;", 
-
             //Server端傳送Clinet端的資料格式
             //接收格式
             //html:接收html格式
             //json:接收json格式
-            dataType: "html",
-            
+            dataType: "html",            
             data: JSON.stringify(model),
             success: function (response) {
                 console.log("postObject-response: " + JSON.stringify(response));
@@ -299,7 +296,7 @@
         alert(`getParameterJson-PageScope.Url.HttpGetParameterJson = ${PageScope.Url.HttpGetParameterJson}?id=${1}`);
 
         $.ajax({
-            url: PageScope.Url.HttpGetParameterJson,
+            url: `${PageScope.Url.HttpGetParameterJson}?id=${1}`,
             //發送格式:GET,POST
             type: "GET",
             //Clinet端傳送Server端的資料格式
@@ -372,7 +369,8 @@
         alert(`getObjectJson-PageScope.Url.HttpGetObjectJson = ${PageScope.Url.HttpGetObjectJson}?id=${model.Id}&Message=${model.Message}`);
 
         $.ajax({
-            url: PageScope.Url.HttpGetObjectJson,
+            //url: PageScope.Url.HttpGetObjectJson,
+            url: `${PageScope.Url.HttpGetObjectJson}?id=${model.Id}&Message=${model.Message}`,
             //發送格式:GET,POST
             type: "GET",
             contentType: "application/json", //Clinet端傳送Server端的資料格式
@@ -384,7 +382,7 @@
             //接收格式
             //html:接收html格式
             //json:接收json格式
-            data: model,
+            //data: model,
             success: function (response) {
                 console.log("getObjectJson-response: " + JSON.stringify(response));
                 alert("Success");
