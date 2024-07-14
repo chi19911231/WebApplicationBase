@@ -437,7 +437,57 @@
             }
         });
     }
-   
+
+
+    //開發中
+    let postFormJson = function () {
+
+        alert(`postObjectJson-PageScope.Url.HttpPostObjectJson = ${PageScope.Url.HttpPostObjectJson}`);
+        
+        let obj = new Object();
+        obj.data1 = "資料1";
+        obj.data2 = "資料2";
+
+        //JavaScript物件
+        let model = {
+            Id: 1,
+            Message: "Message1",
+            Data: obj,
+        }
+
+        $.ajax({
+            url: PageScope.Url.HttpPostObjectJson,
+            //發送格式:GET,POST
+            type: "POST",
+            //Clinet端傳送Server端的資料格式
+            //傳送格式
+            //application/json:上傳Json格式
+            //application/x-www-form-urlencoded：上傳html表單
+            //multipart/form-data:上傳檔案、圖片
+            contentType: "application/json;",
+            //Server端傳送Clinet端的資料格式
+            //接收格式
+            //html:接收html格式
+            //json:接收json格式
+            dataType: "Json",
+            data: JSON.stringify(model),
+            success: function (response) {
+                console.log("postObjectJson-response: " + JSON.stringify(response));
+
+                alert("Success");
+            },
+            error: function (xhr, status, error) {
+                console.log("Error: " + error);
+            }
+        });
+    }
+
+
+
+
+
+
+
     //html載入完成後執行JavaScript
     ////寫法1
     //$(function () {
