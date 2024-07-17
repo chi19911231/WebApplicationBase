@@ -5,13 +5,18 @@ namespace WebApplicationBase.ViewModels.Base
 
     public class VM_Response
     {
-        /// <summary> Status(1:Success 2:Fail) </summary>
+        /// <summary> 狀態(1:Success 2:Fail) </summary>
         public StatusEnum Status { get; set; }
 
-        /// <summary> Message </summary>
-        public string Message { get; set; }
-        /// <summary> Data </summary>
-        public object Data { get; set; }
+        /// <summary> 訊息 </summary>
+        public string Message { get; set; } = "";
+
+        /// <summary> 資料 </summary>
+        public object Data { get; set; } = "";
+
+
+        /// <summary> 網址 </summary>
+        public string Url { get; set; } = "";
 
 
         /// <summary> 設定訊息 </summary>
@@ -42,21 +47,21 @@ namespace WebApplicationBase.ViewModels.Base
             return this;
         }
 
-        /// <summary> 設定成功 </summary>
-        /// <returns></returns>
-        public VM_Response SetSuccess()
-        {
-            Status = StatusEnum.Success;
-            return this;
-        }
+        ///// <summary> 設定成功 </summary>
+        ///// <returns></returns>
+        //public VM_Response SetSuccess()
+        //{
+        //    Status = StatusEnum.Success;
+        //    return this;
+        //}
 
-        /// <summary> 設定失敗 </summary>
-        /// <returns></returns>
-        public VM_Response SetFail()
-        {
-            Status = StatusEnum.Fail;
-            return this;
-        }    
+        ///// <summary> 設定失敗 </summary>
+        ///// <returns></returns>
+        //public VM_Response SetFail()
+        //{
+        //    Status = StatusEnum.Fail;
+        //    return this;
+        //}    
 
     }
 }

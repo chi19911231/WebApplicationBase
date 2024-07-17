@@ -13,6 +13,11 @@ namespace WebApplicationBase.Enums
         /// <summary> 失敗 </summary>
         [Description("失敗")] 
         Fail = 2,
+
+        /// <summary> 失敗 </summary>
+        [Description("其他")]
+        Other = 3,
+
     }
     #endregion
 

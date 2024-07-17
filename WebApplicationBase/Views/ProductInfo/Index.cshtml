@@ -1,0 +1,63 @@
+﻿@using WebApplicationBase.Enums;
+@model WebApplicationBase.ViewModels.FvmProductInfo.VM_PageData;
+
+@{
+}
+
+@section scripts {
+    <script>
+        var PageScope = {
+            Url: {
+                Index: "@Url.Action("Index", "ProductInfo")",
+                Create: "@Url.Action("Create", "ProductInfo")",
+                Update: "@Url.Action("Update", "ProductInfo")",
+                Delete: "@Url.Action("Delete", "ProductInfo")",
+            },
+            Page: {
+                PageIndex: @Model.PageIndex,
+                PagesTotal: @Model.PagesTotal,
+                PagePreviousDisabled: "@Model.HasPreviousPage",
+                PageNextDisabled: "@Model.HasNextPage",
+            },
+            StatusType: {
+                Success: @((int)StatusEnum.Success),
+                Fail: @((int)StatusEnum.Fail),
+            },
+        };
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/js/Page/Index.js")" asp-append-version="true"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/ProductInfo/Index.js")" asp-append-version="true"></script>
+}
+Index
+
+<div class="row mb-3">
+    <div class="col-2">產品資訊列表</div>
+    <div class="col-8"></div>
+    <div class="col-2">
+        <button type="button" class="btn btn-success btnCreate">新增</button>
+    </div>
+</div>
+<form id="form" asp-action="Index" method="get" class="mt-3">
+    @if (Model.PageListData != null)
+    {
+        @foreach (var item in Model.PageListData)
+        {
+            <div class="row mb-3">
+                <div class="col-3">
+                    @item.Name
+                </div>
+                <div class="col-3">
+                    @item.Price
+                </div>
+                <div class="col-4"></div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-primary btnEdit" value="@item.Id">編輯</button>
+                    <button type="button" class="btn btn-danger btnDelete" value="@item.Id">刪除</button>
+                </div>
+            </div>
+        }
+    }
+    <div id="page" class="form-inline text-center"></div>
+</form>
+<!--Modal顯示區域-->
+<div id="modalScope"></div>

@@ -1,0 +1,60 @@
+﻿@model WebApplicationBase.ViewModels.FvmProductInfo.VM_Data;
+
+<script type="text/javascript" src="@Url.Content("~/js/ModalTemplate/Index.js")" asp-append-version="true"></script>
+@{
+    var modalTitle = "產品";
+    var modalType = Model.Id == 0 ? "新增" : "更新";
+}
+@section modalScripts {
+    <script>
+        var ModalPageScope = {
+            Url: {
+            },
+        };
+    </script> 
+}
+
+<!-- Modal -->
+<form id="modalForm">
+@Html.HiddenFor(x=>x.Id)    
+<div class="modal fade" id="modalTemplate" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalTemplateLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">                    
+                <h5 class="modal-title" id="modalTemplateLabel">@modalTitle@modalType</h5>
+                <button id="btnModalClose" type="button" class="btn-close btnModalClose" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">                    
+                <div class="row mb-3">                        
+                    <div class="col-3">                            
+                        @Html.LabelFor(x => x.Name)
+                    </div>
+                    <div class="col-9">
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                    </div>              
+                </div>
+                <div class="row mb-3">
+                    <div class="col-3">
+                        @Html.LabelFor(x => x.Price)
+                    </div>
+                    <div class="col-9">
+                            @Html.TextBoxFor(x => x.Price, new { @class = "form-control", @type = "number" })
+                        @Html.ValidationMessageFor(x => x.Price, "", new { @class = "text-danger" })
+                    </div>                
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary btnModalClose" data-bs-dismiss="modal">關閉</button>             
+                <button type="button" class="btn btn-primary btnModalSend">送出</button>
+                @if (Model.Id != 0)
+                {                        
+                    <button type="button" class="btn btn-danger btnModalDelete">刪除</button>                   
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+</form>

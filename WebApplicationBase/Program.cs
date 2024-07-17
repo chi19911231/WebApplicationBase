@@ -27,7 +27,7 @@ builder.Services.AddSingleton<IHomeService, HomeService>();
 //因DB注入不適合用Singleton
 builder.Services.AddScoped<IBaseTemplateService, BaseTemplateService>();
 builder.Services.AddScoped<IUserInfoService, UserInfoService>();
-
+builder.Services.AddScoped<IProductInfoService, ProductInfoService>();
 
 var app = builder.Build();
 

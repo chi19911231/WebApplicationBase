@@ -2,19 +2,27 @@
     
     $(function () {
 
-     
+        //$(".btnModalClose").on("click", function () {
+        //    alert("btnModalClose");
+        //    close();
+        //})
 
         $(".btnCreate").on("click", function () {
-            location.href = `${PageScope.Url.Create}`;
-        })
+            create();
+        })        
 
         $(".btnEdit").on("click", function (){
             let id = $(this).attr("value");
-            location.href = `${PageScope.Url.Update}?id=${id}`;
+            //location.href = `${PageScope.Url.Update}?id=${id}`;
+            update(id);
+
         })
 
         $(".btnDelete").on("click", function () {
             let id = $(this).attr("value");
+
+            alert(id);
+
             Swal.fire({
                 //標頭
                 title: `是否刪除？`,
@@ -33,9 +41,8 @@
                 //取消按鈕文字
                 cancelButtonText: "取消",
             }).then(function (result) {   
-
-                console.log(JSON.stringify(result));
-                if (result.value) { 
+                
+                if (result.value) {
                     deleteUserInfo(id);
                 }
                 else {
@@ -64,6 +71,52 @@
         })    
 
     });
+
+    
+
+    //btnModalClose
+    let close = function () {       
+        //$("#productInfoModal").html("");
+        $("#productInfoModal").remove();
+    }
+
+
+    let create = function () {
+        $.ajax({
+            url: PageScope.Url.Create,
+            //發送格式:GET,POST
+            type: "GET",
+            dataType: "html",
+            success: function (response) {
+                $("#modalScope").html(response);
+                $('#modalTemplate').modal("show");             
+            },
+            error: function (xhr, status, error) {
+                console.log("Error: " + error);
+                alert("Error");
+            }
+        });
+
+    }
+
+    let update = function (id) {
+    
+        $.ajax({
+            url: `${PageScope.Url.Update}?id=${id}`,
+            //發送格式:GET,POST
+            type: "GET",
+            dataType: "html",
+            success: function (response) {
+                $("#modalScope").html(response);
+                $('#modalTemplate').modal("show");
+            },
+            error: function (xhr, status, error) {
+                console.log("Error: " + error);
+                alert("Error");
+            }
+        });
+    }
+    //data: JSON.stringify({ id: "1" }),
 
     let deleteUserInfo = (id) => {
         $.ajax({

@@ -60,6 +60,7 @@
             url: PageScope.Url.HttpGet,
             //發送格式:GET,POST
             type: "GET",
+            dataType: "html",    
             success: function (response) {
                 console.log("get-response: " + JSON.stringify(response));
                 alert("Success");
@@ -82,6 +83,7 @@
             url: PageScope.Url.HttpPost,
             //發送格式:GET,POST
             type: "POST",
+            dataType: "html",
             success: function (response) {      
                 console.log("post-response: " + JSON.stringify(response));
                 alert("Success");
