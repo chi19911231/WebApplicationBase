@@ -2,7 +2,7 @@
 @model WebApplicationBase.ViewModels.FvmUserInfo.VM_Data
 @{
     var title = "帳號";
-    var type = Model == null ? "新增" : "更新" ;  
+    var type = Model.ID == 0 ? "新增" : "更新" ;  
 }
 
 @section scripts {
@@ -113,7 +113,7 @@
     <div class="d-flex justify-content-center">
         <input type="submit" class="btn btn-success mx-2" value="送出" />
         <input type="button" class="btn btn-secondary btnBack mx-2" value="返回" />
-        @if (Model != null)
+        @if (Model.ID != 0)
         {
             <input type="button" class="btn btn-danger btnDelete mx-2" value="刪除" />        
         }

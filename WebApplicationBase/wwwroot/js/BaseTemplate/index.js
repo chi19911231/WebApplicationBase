@@ -1,7 +1,7 @@
 ﻿(function ($) {
     $(function () {
 
-        $(".createBtn").on("click", () => {
+        $(".btnCreate").on("click", () => {
             location.href = PageScope.Url.Create;
         })
 
@@ -10,14 +10,11 @@
             location.href = `${PageScope.Url.Update}?id=${btnValue}`;
         })
 
-        $(".deleteBtn").on("click", function () {
-
+        $(".btnDelete").on("click", function () {
             //attr:網頁初始載入時的狀態
             //prop:網頁初始後改變的狀態
             let btnValue = $(this).attr("value");
-
             deleteModel(btnValue);
-
         })   
 
     });

@@ -1,5 +1,5 @@
 ﻿@using WebApplicationBase.Enums;
-@model WebApplicationBase.ViewModels.FvmProductInfo.VM_PageData;
+@model WebApplicationBase.ViewModels.FvmDynamic.VM_PageData
 @{
 
 }
@@ -8,10 +8,11 @@
     <script>
         var PageScope = {
             Url: {
-                Index: "@Url.Action("Index", "ProductInfo")",
-                Create: "@Url.Action("Create", "ProductInfo")",
-                Update: "@Url.Action("Update", "ProductInfo")",
-                Delete: "@Url.Action("Delete", "ProductInfo")",
+                Index: "@Url.Action("Index", "BaseDynamicTemplate")",
+                Create: "@Url.Action("Create", "BaseDynamicTemplate")",
+                Update: "@Url.Action("Update", "BaseDynamicTemplate")",
+                Delete: "@Url.Action("Delete", "BaseDynamicTemplate")",
+                Dynamic: "@Url.Action("Dynamic", "BaseDynamicTemplate")",
             },
             Page: {
                 PageIndex: @Model.PageIndex,
@@ -26,28 +27,38 @@
         };
     </script>
     <script type="text/javascript" src="@Url.Content("~/js/Page/Index.js")" asp-append-version="true"></script>
-    <script type="text/javascript" src="@Url.Content("~/js/ProductInfo/Index.js")" asp-append-version="true"></script>
+     <script type="text/javascript" src="@Url.Content("~/js/BaseDynamicTemplate/Index.js")" asp-append-version="true"></script> 
+   @* <script type="text/javascript" src="@Url.Content("~/js/BaseDynamicTemplate/Delete.js")" asp-append-version="true"></script> *@
 }
-Index
-
+BaseDynamicTemplate
 <div class="row mb-3">
-    <div class="col-2">產品資訊列表</div>
-    <div class="col-8"></div>
+    <div class="col-10"></div>
     <div class="col-2">
-        <button type="button" class="btn btn-success btnCreate">新增</button>
+        <button class="btn btn-secondary btnCreate">新增</button>
     </div>
 </div>
+
 <form id="form" asp-action="Index" method="get" class="mt-3">
     @if (Model.PageListData != null)
     {
+       @*  <div class="row mb-3">
+            <div class="col-3">
+                帳號
+            </div>
+            <div class="col-3">
+                姓名
+            </div>
+            <div class="col-4"></div>
+            <div class="col-2">功能</div>
+        </div> *@
         @foreach (var item in Model.PageListData)
         {
             <div class="row mb-3">
                 <div class="col-3">
-                    @item.Name
+                    @item.Acount
                 </div>
                 <div class="col-3">
-                    @item.Price
+                    @item.Name
                 </div>
                 <div class="col-4"></div>
                 <div class="col-2">
@@ -59,5 +70,3 @@ Index
     }
     <div id="page" class="form-inline text-center"></div>
 </form>
-<!--Modal顯示區域-->
-<div id="modalScope"></div>

@@ -27,7 +27,7 @@ namespace WebApplicationBase.ViewModels
         public class VM_Data
         {
             /// <summary> ID </summary>          
-            public int? ID { get; set; }
+            public int ID { get; set; } = 0;
 
             /// <summary> 帳號 </summary>
             [Required(ErrorMessage = "帳號必填")]

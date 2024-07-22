@@ -21,7 +21,6 @@ namespace WebApplicationBase.Enums
     }
     #endregion
 
-
     #region 系統相關設定
     /// <summary> 性別 列舉(男、女、其他) </summary>
     public enum GenderEnum
@@ -38,17 +37,7 @@ namespace WebApplicationBase.Enums
         [Description("其他")]
         Other = 3,
     }
-
-
-
-
-
-
     #endregion
-
-
-
-
 
     public class EnumType
     {

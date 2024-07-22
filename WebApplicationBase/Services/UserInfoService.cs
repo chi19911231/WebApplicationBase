@@ -54,7 +54,6 @@ namespace WebApplicationBase.Services
         /// <returns></returns>
         public IQueryable<FvmUserInfo.VM_Data> GetSearchList()
         {
-
             var query = from userInfos in context.UserInfos select new FvmUserInfo.VM_Data
             {
                 ID = userInfos.Id,
@@ -66,9 +65,6 @@ namespace WebApplicationBase.Services
                 Address = userInfos.Address,
                 Email = userInfos.Email,
             };
-
-        
-
             return query;
         }
 
@@ -96,11 +92,8 @@ namespace WebApplicationBase.Services
             {                     
                 throw new InvalidDataException("找不到該筆資料");                
             }
-
-
             return model;
         }
-
 
         /// <summary> 更新商品 </summary>
         /// <param name="model">更新模型</param>
@@ -111,7 +104,7 @@ namespace WebApplicationBase.Services
             //資料異動如果出問題此SQL交易則取消(RollbackAsync)
             await using (var transaction = await context.Database.BeginTransactionAsync())
             {
-                if (!model.ID.HasValue)
+                if (model.ID == 0)
                 {
                     var userInfo = new UserInfo()
                     {                         

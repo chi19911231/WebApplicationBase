@@ -28,6 +28,8 @@ builder.Services.AddSingleton<IHomeService, HomeService>();
 builder.Services.AddScoped<IBaseTemplateService, BaseTemplateService>();
 builder.Services.AddScoped<IUserInfoService, UserInfoService>();
 builder.Services.AddScoped<IProductInfoService, ProductInfoService>();
+builder.Services.AddScoped<IBaseDynamicTemplateService, BaseDynamicTemplateService>();
+
 
 var app = builder.Build();
 

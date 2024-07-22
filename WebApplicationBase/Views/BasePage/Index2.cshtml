@@ -20,7 +20,7 @@
 
 <h1>Order1</h1>
 <form id="form" asp-action="Index2" method="get" class="mt-3">
- @*    <div class="row">
+ @*<div class="row">
         <div class="col-sm col-md-6 col-lg-3 col-xl-3">
             <label class="custom-label">客戶名稱</label>
             <div class="form-group form-row">
@@ -74,12 +74,10 @@
                 <div class="col-4"></div>
                 <div class="col-2">
                     <button class="btn btn-secondary btnUpdate" value="@item.ID">編輯</button>
-                    <button class="btn btn-danger deleteBtn" value="@item.ID">刪除</button>
+                    <button class="btn btn-danger btnDelete" value="@item.ID">刪除</button>
                 </div>
             </div>
         }
-    }
-
-        <div id="page" class="form-inline text-center"></div>
-
+    }        
+    <div id="page" class="form-inline text-center"></div>
 </form>

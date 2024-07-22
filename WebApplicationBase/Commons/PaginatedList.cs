@@ -4,8 +4,7 @@ namespace WebApplicationBase.Commons
 {
     public class PaginatedList<T> : List<T>
     {
-
-        #region 頁數設定        
+        #region 頁數設定   
 
         /// <summary> 頁數 </summary>
         public int PageIndex { get; private set; }
@@ -43,9 +42,10 @@ namespace WebApplicationBase.Commons
 
             //目前頁數
             PageIndex = pageIndex;
-            
+
             //總頁數
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+            //TotalPages = (Math.Ceiling(count / (double)pageSize) as int)??0;
 
             //分頁資料
             this.AddRange(items);

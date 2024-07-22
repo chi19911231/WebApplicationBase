@@ -1,0 +1,106 @@
+﻿@using WebApplicationBase.Enums;
+@model WebApplicationBase.ViewModels.FvmDynamic.VM_Data
+@{
+
+}
+
+@section scripts {
+    <script>
+        var PageScope = {
+            Url: {
+                Index: "@Url.Action("Index", "BaseTemplate")",
+                Create: "@Url.Action("Create", "BaseTemplate")",
+                Update: "@Url.Action("Update", "BaseTemplate")",
+                Delete: "@Url.Action("Delete", "BaseTemplate")",
+                Dynamic: "@Url.Action("Dynamic", "BaseDynamicTemplate")",
+            },
+        };
+    </script>
+      <script type="text/javascript" src="@Url.Content("~/js/BaseDynamicTemplate/Update.js")" asp-append-version="true"></script> 
+      @*  <script type="text/javascript" src="@Url.Content("~/js/BaseDynamicTemplate/Delete.js")" asp-append-version="true"></script> *@
+}
+
+BaseDynamicTemplate
+<form id="" method="post" asp-action="Update">
+    @Html.HiddenFor(x=>x.Id)
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Acount)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Acount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Acount, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Password)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password" })
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-9"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button type="button" class="btn btn-secondary btnDynamicAdd">新增地址</button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1">
+                地址
+            </div>
+            <div class="col-11">
+
+                <div id="DynamicView">
+                    @if (Model.ListDynamicData != null)
+                    {                   
+                        @for (int i = 0; i < Model.ListDynamicData.Count; i++)
+                        {
+                            await Html.RenderPartialAsync("_DynamicPartial"
+                            , Model
+                            , new ViewDataDictionary(ViewData) { { "index", i } });
+                        }
+
+                       @*int index = 0;
+                        foreach (var item in Model.ListDynamicData)
+                        {
+                            await Html.RenderPartialAsync("_DynamicPartial", Model, 
+                            new ViewDataDictionary(ViewData) { { "index", index } });
+                            index++;
+                          
+                            <div class="row mb-3 dynamic">
+                                @Html.HiddenFor(x => x.ListDynamicData[index].DynamicID, new { @class = "DynamicID form-control" })
+                                <div class="col-10">
+                                    @Html.TextBoxFor(x => x.ListDynamicData[index].Address, new { name = "ListDynamicData[0].Address", @class = "DynamicAddress form-control" })
+                                    @Html.ValidationMessageFor(x => x.ListDynamicData[index].Address, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-2">
+                                    <button type="button" class="btn btn-danger btnDynamicDelete" onclick="dynamicDetele1(this)">刪除</button>
+                                </div>
+                            </div>
+                            index++; 
+
+                        }*@
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-success mx-2 btnCeate" value="送出" />
+</form>

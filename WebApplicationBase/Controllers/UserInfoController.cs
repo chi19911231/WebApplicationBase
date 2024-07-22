@@ -37,7 +37,8 @@ namespace WebApplicationBase.Controllers
 
         public IActionResult Create()
         {
-            return View("Update");
+            var model = new FvmUserInfo.VM_Data() { ID = 0 };
+            return View("Update", model);
         }
 
         [HttpGet]

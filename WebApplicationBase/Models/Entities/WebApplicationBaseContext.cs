@@ -15,6 +15,8 @@ public partial class WebApplicationBaseContext : DbContext
     {
     }
 
+    public virtual DbSet<AddressInfo> AddressInfos { get; set; }
+
     public virtual DbSet<BaseTable> BaseTables { get; set; }
 
     public virtual DbSet<ProductInfo> ProductInfos { get; set; }
@@ -27,6 +29,27 @@ public partial class WebApplicationBaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<AddressInfo>(entity =>
+        {
+            entity.ToTable("AddressInfo");
+
+            entity.Property(e => e.Id)
+                .HasComment("ID")
+                .HasColumnName("ID");
+            entity.Property(e => e.Address)
+                .HasMaxLength(50)
+                .HasComment("姓名");
+            entity.Property(e => e.CreateTime)
+                .HasComment("建立時間")
+                .HasColumnType("datetime");
+            entity.Property(e => e.CreateUser).HasComment("建立使用者");
+            entity.Property(e => e.UpdateTime)
+                .HasComment("異動時間")
+                .HasColumnType("datetime");
+            entity.Property(e => e.UpdateUser).HasComment("更新使用者");
+            entity.Property(e => e.UserInfoId).HasColumnName("UserInfoID");
+        });
+
         modelBuilder.Entity<BaseTable>(entity =>
         {
             entity.ToTable("BaseTable");

@@ -91,7 +91,9 @@ namespace WebApplicationBase.Services
                         Price = model.Price,
                     };
 
+                    //var newProductId = productInfos.Id;
                     await context.ProductInfos.AddAsync(productInfos);
+                    await context.SaveChangesAsync();
 
                 }
                 else
@@ -101,12 +103,14 @@ namespace WebApplicationBase.Services
                     {
                         throw new InvalidDataException("找不到該筆資料");
                     }
+
                     //因Entity Framework Core會自動追蹤實體的變更，不用呼叫Update() ，呼叫 SaveChangesAsync()會自動更新資料庫。
                     entity.Name = model.Name;
-                    entity.Price = model.Price; 
+                    entity.Price = model.Price;
+                    await context.SaveChangesAsync();
+
                 }          
                 
-                await context.SaveChangesAsync();
                 await transaction.CommitAsync();
 
             }

@@ -153,7 +153,6 @@ namespace WebApplicationBase.Services
             //資料異動如果出問題此SQL交易則取消(RollbackAsync)
             await using (var transaction = await context.Database.BeginTransactionAsync())
             {
-
                 var entity = await context.BaseTables.Where(x => x.Id == id).FirstOrDefaultAsync(); 
 
                 if (entity == null)

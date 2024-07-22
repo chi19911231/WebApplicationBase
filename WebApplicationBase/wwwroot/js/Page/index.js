@@ -84,7 +84,7 @@
         `
             </select>
             頁｜
-            <a  class="btnPage btnNext ${nextDisabled} ">下一頁</a>
+            <a class="btnPage btnNext ${nextDisabled} ">下一頁</a>
         </div >
         `;
 

@@ -23,10 +23,10 @@ namespace WebApplicationBase.ViewModels
         public class VM_Data
         {
             /// <summary> ID </summary>          
-            public int Id { get; set; } = 0; 
+            public int Id { get; set; } = 0;
 
             /// <summary> 名稱 </summary>
-            //[Required(ErrorMessage = "名稱必填")]
+            [Required(ErrorMessage = "名稱必填")]
             [DisplayName("名稱")]
             [MaxLength(15)]
             public string? Name { get; set; }
@@ -41,15 +41,11 @@ namespace WebApplicationBase.ViewModels
             //public int? Type { get; set; }
         }
 
-
         /// <summary> 自訂驗證 </summary>
         /// <param name="modelState"></param>
         public void OtherValidation(ModelStateDictionary modelState)
         {
 
-
         }
-
-
     }
 }

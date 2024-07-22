@@ -1,18 +1,23 @@
 ﻿(function ($) {
-    
-    $(function () {     
+    //註冊事件
+    $(function () {
 
-        $(".btnCreate").on("click", function () {
+        //新增按鈕
+        $(".btnCreate").on("click", () => {
             location.href = `${PageScope.Url.Create}`;
-        })
+        })      
 
-        $(".btnEdit").on("click", function (){
+
+        //編輯按鈕
+        $(".btnEdit").on("click", function (){ 
             let btnValue = $(this).attr("value");
             location.href = `${PageScope.Url.Update}?id=${btnValue}`;
         })
 
-        $(".btnDelete").on("click", function () {
-            let btnValue = $(this).attr("value");
+        //刪除按鈕
+        $(".btnDelete").on("click", function(){
+            let btnValue = $(this).attr("value");    
+  
             Swal.fire({
                 //標頭
                 title: `是否刪除？`,
@@ -30,40 +35,26 @@
                 cancelButtonColor: "#d33",
                 //取消按鈕文字
                 cancelButtonText: "取消",
-            }).then(function (result) {   
+            }).then(function (result) {
 
                 console.log(JSON.stringify(result));
-                if (result.value) { 
-                    deleteUserInfo(btnValue);
+                if (result.value) {
+                    deleteInfo(btnValue);
                 }
                 else {
                     //Swal.fire("您選擇了Cancel");
                 }
             });
-        })      
 
-        $(".GetListData").on("click", () => {
-            alert(`GetListData`); 
-            location.href = `${PageScope.Url.GetList}`;
+
+
         })
 
-        $(".GetData").on("click", () => {
-            alert(`GetData`);
-            location.href = `${PageScope.Url.GetAsync}?id=1`;
-        })
-
-        $(".AjaxTemplate").on("click", () => {
-            alert(`AjaxTemplate`);
-            location.href = `${PageScope.Url.AjaxTemplateIndex}`;
-        })
-
-        $(".BaseTemplate").on("click", () => {
-            location.href = `${PageScope.Url.BaseTableIndex}`;
-        })    
 
     });
 
-    let deleteUserInfo = (btnValue) => {
+    //宣告方法
+    let deleteInfo = (btnValue) => {
         $.ajax({
             url: PageScope.Url.Delete,
             type: "POST",
@@ -73,7 +64,7 @@
             success: function (response) {
                 console.log("postParameterJson-response: " + JSON.stringify(response));
                 if (response.status == PageScope.StatusType.Success) {
-                    confirmHref("刪除成功",null);
+                    confirmHref("刪除成功", null);
                 }
                 else {
                     console.log("postParameterJson-response: " + JSON.stringify(response));
@@ -88,6 +79,7 @@
         });
     }
 
+    //
     let confirmHref = (title, text) => {
         Swal.fire({
             //標頭
@@ -96,9 +88,10 @@
             text: text,
             showCancelButton: false,
         }).then(function (result) {
-            if (result.value) {
-                location.href = PageScope.Url.Index;
-            }
+            location.href = PageScope.Url.Index;
+            //if (result.value) {
+            //    location.href = PageScope.Url.Index;
+            //}
         });
     }
 

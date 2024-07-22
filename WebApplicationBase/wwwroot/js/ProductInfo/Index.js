@@ -12,17 +12,13 @@
         })        
 
         $(".btnEdit").on("click", function (){
-            let id = $(this).attr("value");
+            let btnValue = $(this).attr("value");
             //location.href = `${PageScope.Url.Update}?id=${id}`;
-            update(id);
-
+            update(btnValue);
         })
 
         $(".btnDelete").on("click", function () {
-            let id = $(this).attr("value");
-
-            alert(id);
-
+            let btnValue = $(this).attr("value");
             Swal.fire({
                 //標頭
                 title: `是否刪除？`,
@@ -43,7 +39,7 @@
             }).then(function (result) {   
                 
                 if (result.value) {
-                    deleteUserInfo(id);
+                    deleteUserInfo(btnValue);
                 }
                 else {
                     //Swal.fire("您選擇了Cancel");
@@ -68,7 +64,7 @@
 
         $(".BaseTemplate").on("click", () => {
             location.href = `${PageScope.Url.BaseTableIndex}`;
-        })    
+        })
 
     });
 
@@ -118,13 +114,13 @@
     }
     //data: JSON.stringify({ id: "1" }),
 
-    let deleteUserInfo = (id) => {
+    let deleteUserInfo = (btnValue) => {
         $.ajax({
             url: PageScope.Url.Delete,
             type: "POST",
             contentType: "application/x-www-form-urlencoded",
             dataType: "json",
-            data: { id: id },
+            data: { id: btnValue },
             success: function (response) {
                 console.log("postParameterJson-response: " + JSON.stringify(response));
                 if (response.status == PageScope.StatusType.Success) {
