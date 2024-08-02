@@ -65,7 +65,6 @@ namespace WebApplicationBase.Services
         /// <returns></returns>
         public Task UpdateAsync(FvmHome.VM_Data model)
         {
-
             return null;
         }
 
@@ -74,7 +73,6 @@ namespace WebApplicationBase.Services
         /// <returns></returns>
         public Task<bool> DeleteAsync(int id)
         {
-
             return null;
         }
     }

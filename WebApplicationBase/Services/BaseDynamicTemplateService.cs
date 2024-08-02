@@ -41,7 +41,6 @@ namespace WebApplicationBase.Services
             this.context = context;
         }
 
-
         /// <summary> 取得所有資料 </summary>
         /// <returns></returns>
         public IQueryable<FvmDynamic.VM_Data> GetSearchList()
@@ -72,8 +71,8 @@ namespace WebApplicationBase.Services
                                               where addressInfo.UserInfoId == id                                             
                                               select new FvmDynamic.VM_DynamicData                                             
                                               {                                               
-                                                  DynamicId = addressInfo.Id,                                               
-                                                  Address = addressInfo.Address,                                             
+                                                  DynamicId = addressInfo.Id,
+                                                  Address = addressInfo.Address,
                                               }).ToListAsync();
 
             var model = await (from userInfos in context.UserInfos
@@ -228,7 +227,6 @@ namespace WebApplicationBase.Services
                 {
                     throw new InvalidDataException("找不到該筆資料");
                 }
-
 
                 var entityAddress = await context.AddressInfos.Where(x => x.UserInfoId == id).FirstOrDefaultAsync();
 

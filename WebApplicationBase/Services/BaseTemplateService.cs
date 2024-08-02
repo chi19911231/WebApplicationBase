@@ -65,7 +65,6 @@ namespace WebApplicationBase.Services
             var model = await query.ToListAsync();
 
             return model;
-
         
         }
 
